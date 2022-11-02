@@ -72,7 +72,6 @@
      <Compile Include="Assets\Player\Epic Toon FX\Scripts\ETFXRotation.cs" />
      <Compile Include="Assets\Player\Scripts\Player\State\PlayerStatus.cs" />
      <Compile Include="Assets\GotoMain.cs" />
-     <Compile Include="Assets\Scripts\CamController.cs" />
      <Compile Include="Assets\02_CityAsset\BrokenVector\LowPolyFencePack\Scripts\DoorToggle.cs" />
      <Compile Include="Assets\02_CityAsset\BrokenVector\LowPolyFencePack\Scripts\DoorController.cs" />
      <Compile Include="Assets\Player\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
@@ -81,6 +80,13 @@
      <Compile Include="Assets\Player\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
      <Compile Include="Assets\Player\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
      <Compile Include="Assets\HP_bar.cs" />
+     <Compile Include="Assets\07_Scripts\Module\Movement.cs" />
+     <Compile Include="Assets\07_Scripts\TurtleShell\EnemyCtrl.cs" />
+     <Compile Include="Assets\07_Scripts\Module\ObjectStatus.cs" />
+     <Compile Include="Assets\07_Scripts\Module\AttackArea.cs" />
+     <Compile Include="Assets\07_Scripts\Module\SearchArea.cs" />
+     <Compile Include="Assets\07_Scripts\TurtleShell\TurtleAnimation.cs" />
+     <Compile Include="Assets\07_Scripts\Module\HitArea.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Player\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

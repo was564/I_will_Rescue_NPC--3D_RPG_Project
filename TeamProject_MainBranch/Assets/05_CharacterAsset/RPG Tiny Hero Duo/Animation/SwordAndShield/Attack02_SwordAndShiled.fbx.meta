@@ -59,7 +59,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.9260564
+      - time: 0.32647058
+        functionName: OnAttack
+        data: 
+        objectReferenceParameter: {fileID: 5219429472343135810, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8966446
+        functionName: OffAttack
+        data: 
+        objectReferenceParameter: {fileID: 5219429472343135810, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.92352945
         functionName: attackEnd
         data: 
         objectReferenceParameter: {fileID: 8069650536690672672, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}

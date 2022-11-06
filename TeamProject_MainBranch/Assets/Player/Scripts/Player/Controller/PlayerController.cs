@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rigid;
     Animator anim;
     public Transform cameraTransform;
-
+    GameObject Sword;
     void Start()
     {
 
@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
+
+        Sword = GameObject.Find("Sword");
     }
 
 
@@ -210,7 +212,7 @@ public class PlayerController : MonoBehaviour
 
     void SkillInput()
     {
-        if(dodge && sa_dodge)
+        if (dodge && sa_dodge)
             Dodge();
         if (rangeSkill && sa_rangeSkill)
             RangeSkill();
@@ -222,7 +224,7 @@ public class PlayerController : MonoBehaviour
             Buf();
     }
 
-   void Dodge()
+    void Dodge()
     {
         ct_dodge = 0.0f;
         sa_dodge = false;
@@ -231,7 +233,7 @@ public class PlayerController : MonoBehaviour
         ef_dodge.SetActive(true);
         Invoke("EndDodge", 1.0f);
         rigid.AddForce(moveVec * 200, ForceMode.Impulse);
- 
+
     }
 
     void Heal()
@@ -246,7 +248,7 @@ public class PlayerController : MonoBehaviour
         // HP 일정량 회복
         healCycle += 1.0f * Time.deltaTime;
 
-        if(healCycle > 1.0f)
+        if (healCycle > 1.0f)
         {
             // 플레이어의 체력 일정량 회복
 
@@ -264,7 +266,7 @@ public class PlayerController : MonoBehaviour
 
         // 모든 스탯 증가
 
-       
+
     }
 
     void RangeSkill()
@@ -277,7 +279,7 @@ public class PlayerController : MonoBehaviour
 
         anim.SetTrigger("rangeSkill");
 
-        Instantiate(pj_rangeSkill , transform.position, transform.rotation);
+        Instantiate(pj_rangeSkill, transform.position, transform.rotation);
     }
 
     void MeleeSkill()
@@ -322,6 +324,16 @@ public class PlayerController : MonoBehaviour
             isJump = false;
             attackEnd();
         }
+    }
+
+    void OnAttack()
+    {
+        Sword.GetComponent<Collider>().enabled = true;
+    }
+
+    void OffAttack()
+    {
+        Sword.GetComponent<Collider>().enabled = false;
     }
 }
 

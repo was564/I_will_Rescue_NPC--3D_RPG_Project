@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerStatus : MonoBehaviour
 {
     // Start is called before the first frame update
-    int hp;
-    int damage;
+    [SerializeField]
+    int hp = 100;
+    [SerializeField]
+    int damage = 5;
 
     void Start()
     {
@@ -17,5 +19,15 @@ public class PlayerStatus : MonoBehaviour
     void Update()
     {
         
+    }
+
+    // 데미지를 입을 함수 설정
+    void AttackPlayer(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0) 
+        { 
+            hp = 0; 
+        }
     }
 }

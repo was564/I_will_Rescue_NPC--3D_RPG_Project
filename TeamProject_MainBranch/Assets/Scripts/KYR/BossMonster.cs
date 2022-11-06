@@ -80,9 +80,11 @@ public class BossMonster : MonoBehaviour
     {
         skillHndl.m_NormalSkills = new List<BossSkill>();
         skillHndl.m_NormalSkills.Add(new BossSkill(10, 15, Special_02Bombing));
-        skillHndl.m_NormalSkills.Add(new BossSkill(10, 10, Special_BossDefence));
-        skillHndl.m_NormalSkills.Add(new BossSkill(10, 8, Special_CreateTornado));
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 10, Special_CreateTornado));
         skillHndl.m_NormalSkills.Add(new BossSkill(10, 5, Normal_Throwing));
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 5, Normal_Rotating));
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 20, Special_BossDefence));
+
     }
 
     private void initBossAdvanceSkills(Element element)
@@ -199,6 +201,7 @@ public class BossMonster : MonoBehaviour
 
     IEnumerator moveToward()
     {
+        StartCoroutine(moveTowardTimer());
         while (m_Animator.GetInteger("AttackType") == (int)AnimationType.Rotate)
         {
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -211,10 +214,18 @@ public class BossMonster : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-        m_isChasing = true;
         yield return null;
     }
 
+    IEnumerator moveTowardTimer()
+    {
+        yield return new WaitForSeconds(5.0f);
+        m_Animator.SetTrigger("EndAttack");
+        StopCoroutine(moveToward());
+        m_isChasing = true;
+        yield return null;
+
+    }
 
     /// <summary>
     /// 회전 회오리 소환: 맵의 랜덤한 위치에 랜덤한 개수의 회전하는 회오리를 생성한다.

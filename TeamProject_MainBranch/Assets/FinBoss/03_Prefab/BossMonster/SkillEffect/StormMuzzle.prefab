@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 87350302002455974}
   - component: {fileID: 87350302004439776}
   - component: {fileID: 87350301977240144}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CloudBurst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3606,9 +3606,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3785,11 +3785,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
@@ -4837,7 +4837,7 @@ GameObject:
   - component: {fileID: 87350301984129238}
   - component: {fileID: 87350302002444856}
   - component: {fileID: 87350302004450378}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8440,9 +8440,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -8619,11 +8619,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
@@ -9657,7 +9657,7 @@ GameObject:
   - component: {fileID: 87350301984045204}
   - component: {fileID: 87350302002381972}
   - component: {fileID: 87350302004477662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cutters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13179,9 +13179,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -13358,11 +13358,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
@@ -14396,7 +14396,7 @@ GameObject:
   - component: {fileID: 87350301984146348}
   - component: {fileID: 87350302002485748}
   - component: {fileID: 87350302004455196}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: StormMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18020,9 +18020,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -18199,11 +18199,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:

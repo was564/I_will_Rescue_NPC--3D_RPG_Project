@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BossMonster : MonoBehaviour
 {
@@ -10,7 +9,9 @@ public class BossMonster : MonoBehaviour
         Ice, //0: 얼음
         Rock, //1: 돌
         Lava, //2: 용암
-        AllElem, //3. 다이아몬드
+        Dia, //3. 다이아몬드
+        Water,//4. 물
+        Metal//5. 강철
     }
 
     public enum AnimationType
@@ -21,7 +22,6 @@ public class BossMonster : MonoBehaviour
     }
     public CoolTimeHndl skillHndl;
 
-    public BossMonsterCtrl Bossmonsterctrl;
     /// <summary>
     /// Boss Information
     /// </summary>
@@ -30,9 +30,6 @@ public class BossMonster : MonoBehaviour
     public GameObject m_throughObjectInHand; //투척 오브젝트 prefab
     public GameObject m_throughObjectPrefab; //투척 오브젝트 prefab
 
-    
-    //Ice Freeze Effect
-    public GameObject m_IceFreezecylider;
     //회전 회오리 이펙트 Gameobject
     public GameObject m_EffectTornado;
     //쉴드 오브젝트 프리팹
@@ -40,6 +37,10 @@ public class BossMonster : MonoBehaviour
     //공기 팡 damageGuid
     public GameObject m_bombguidPrefab;
     public GameObject m_EffectBombParticle;
+
+    private List<BossSkill> m_AdvancedSkills;//보스가 가진 특수 패턴
+
+    private BossSkill m_SpecialSkill; //원소에 따른 특수 패턴 1가지.
 
     private Animator m_Animator;
     public delegate void m_defaultFeature(); //원소 특성에 따른 디폴트 특징. (변경될 수 있음)
@@ -51,7 +52,8 @@ public class BossMonster : MonoBehaviour
     private GameObject[] m_damageGuidGraphic = new GameObject[2];//2개.[0] sub, [1] base
     private GameObject throws;
 
-    private bool m_SpaceBtnDownMode;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,17 +68,6 @@ public class BossMonster : MonoBehaviour
     {
         if (m_isChasing)
             Normal_Chasing();
-
-
-        if (m_SpaceBtnDownMode
-            && Input.GetButtonDown("Jump"))
-        {
-            if (Bossmonsterctrl.m_SpaceBarSlider.value <= 0 || Bossmonsterctrl.m_SpaceBarSlider.value > 0.99f)
-                m_SpaceBtnDownMode = false;
-
-            Bossmonsterctrl.m_SpaceBarSlider.value += 0.1f;
-        }
-          
     }
 
     private void setBossSkillSets(Element element)
@@ -87,15 +78,11 @@ public class BossMonster : MonoBehaviour
 
     private void initBossNormalSkills()
     {
-        skillHndl.m_Skills = new List<BossSkill>();
-        skillHndl.m_Skills.Add(new BossSkill(10, 15, Special_02Bombing));
-        skillHndl.m_Skills.Add(new BossSkill(10, 10, Special_CreateTornado));
-        skillHndl.m_Skills.Add(new BossSkill(10, 5, Normal_Throwing));
-        skillHndl.m_Skills.Add(new BossSkill(10, 5, Normal_Rotating));
-        skillHndl.m_Skills.Add(new BossSkill(10, 30, Special_BossDefence));
-        skillHndl.m_Skills.Add(new BossSkill(10, 5, Normal_Chasing));
-
-
+        skillHndl.m_NormalSkills = new List<BossSkill>();
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 15, Special_02Bombing));
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 10, Special_BossDefence));
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 8, Special_CreateTornado));
+        skillHndl.m_NormalSkills.Add(new BossSkill(10, 5, Normal_Throwing));
     }
 
     private void initBossAdvanceSkills(Element element)
@@ -103,13 +90,16 @@ public class BossMonster : MonoBehaviour
         switch(element)
         {
             case Element.Ice:
-                skillHndl.m_Skills.Add(new BossSkill(10, 5, IceElem_Freeze));
+                break;
+            case Element.Metal:
                 break;
             case Element.Rock:
                 break;
+            case Element.Water:
+                break;
             case Element.Lava:
                 break;
-            case Element.AllElem:
+            case Element.Dia:
                 break;
         }
     }
@@ -209,7 +199,6 @@ public class BossMonster : MonoBehaviour
 
     IEnumerator moveToward()
     {
-        StartCoroutine(moveTowardTimer());
         while (m_Animator.GetInteger("AttackType") == (int)AnimationType.Rotate)
         {
             Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -222,18 +211,10 @@ public class BossMonster : MonoBehaviour
             }
             yield return new WaitForEndOfFrame();
         }
-        yield return null;
-    }
-
-    IEnumerator moveTowardTimer()
-    {
-        yield return new WaitForSeconds(5.0f);
-        m_Animator.SetTrigger("EndAttack");
-        StopCoroutine(moveToward());
         m_isChasing = true;
         yield return null;
-
     }
+
 
     /// <summary>
     /// 회전 회오리 소환: 맵의 랜덤한 위치에 랜덤한 개수의 회전하는 회오리를 생성한다.
@@ -356,52 +337,5 @@ public class BossMonster : MonoBehaviour
     }
 
 
-    //Ice Elemental Special Skill
-    private void IceElem_Freeze() //뉸내리는 원형 실린더 생성후 플레이어를 얼린다.
-    {
-        StartCoroutine(BtnDown_Space());
-    }
 
-    IEnumerator BtnDown_Space()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player").gameObject;
-        Vector3 transform = player.transform.position;
-        FrostEffect effect = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FrostEffect>();
-        effect.enabled = true;
-        GameObject IceJail = Instantiate(m_IceFreezecylider, player.transform.position, player.transform.rotation);
-        Bossmonsterctrl.m_SpaceBarSlider.gameObject.SetActive(true);
-        m_SpaceBtnDownMode = true;
-
-        while (m_SpaceBtnDownMode)
-        {
-            player.transform.position = transform;
-            Bossmonsterctrl.m_SpaceBarSlider.value -= 0.005f;
-
-            if(Bossmonsterctrl.m_SpaceBarSlider.value <= 0.0f)
-            {
-                //플레이어 체력깎임.
-
-                break;
-            }
-            else if(Bossmonsterctrl.m_SpaceBarSlider.value >= 0.9f)
-            {
-
-                break;
-            }
-
-            yield return new WaitForFixedUpdate();//프레임 제어
-        }
-        effect.enabled = false;
-        Destroy(IceJail);
-
-        Bossmonsterctrl.m_SpaceBarSlider.gameObject.SetActive(false);
-        yield return null;
-    }
-
-
-    //Lava Elemental Special Skill: Fire Rain
-    private void FireElem_FireRain() 
-    {
-
-    }
 }

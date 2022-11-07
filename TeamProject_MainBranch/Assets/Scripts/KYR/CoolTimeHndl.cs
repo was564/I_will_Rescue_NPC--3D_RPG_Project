@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CoolTimeHndl : MonoBehaviour
 {
-    public List<BossSkill> m_Skills; //보스가 가진 기본 패턴 
-    private BossSkill currentSkill;
+    public List<BossSkill> m_NormalSkills; //보스가 가진 기본 패턴 
+
     bool isAttack()
     {
-        foreach (BossSkill skill in m_Skills)
+        foreach (BossSkill skill in m_NormalSkills)
         {
             if (skill.m_Active) return true;
         }
@@ -19,15 +19,14 @@ public class CoolTimeHndl : MonoBehaviour
     void startAttack()
     {
         List<BossSkill> m_PSkills = new List<BossSkill>() ;
-        foreach (BossSkill skill in m_Skills)
+        foreach (BossSkill skill in m_NormalSkills)
         {
             if (!skill.m_Active)
                 m_PSkills.Add(skill);
         }
         if (m_PSkills.Count == 0) return;
         int idx = Random.Range(0, m_PSkills.Count);
-        currentSkill = m_PSkills[idx];
-        currentSkill.startSkill(this);
+        m_PSkills[idx].startSkill(this);
 
     }
     void Update()

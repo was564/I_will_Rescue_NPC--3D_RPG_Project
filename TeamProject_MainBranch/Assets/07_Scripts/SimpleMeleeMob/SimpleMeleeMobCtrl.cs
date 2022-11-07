@@ -4,11 +4,11 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-public class EnemyCtrl : MonoBehaviour
+public class SimpleMeleeMobCtrl : MonoBehaviour
 {
     private Movement movement;
     private ObjectStatus status;
-    private TurtleAnimation turtleAnimation;
+    private SimpleMeleeMobAnimation mobAnimation;
     
     public Transform attackTarget;
 
@@ -43,7 +43,7 @@ public class EnemyCtrl : MonoBehaviour
         basePosition = transform.position;
         waitTime = waitBaseTime;
         status = GetComponent<ObjectStatus>();
-        turtleAnimation = GetComponent<TurtleAnimation>();
+        mobAnimation = GetComponent<SimpleMeleeMobAnimation>();
     }
 
     // Update is called once per frame
@@ -135,6 +135,7 @@ public class EnemyCtrl : MonoBehaviour
     {
 	    // 이동할 곳을 플레이어에 설정한다.
 	    SendMessage("SetDestination", attackTarget.position);
+	    Debug.Log(gameObject.name + " send Message : setDestination");
 	    // 2미터 이내로 접근하면 공격한다.
 	    if (Vector3.Distance( attackTarget.position, transform.position ) <= range)
 	    {
@@ -159,7 +160,7 @@ public class EnemyCtrl : MonoBehaviour
 	// 공격 중 처리.
 	void Attacking()
 	{
-		if (turtleAnimation.IsAttacked())
+		if (mobAnimation.IsAttacked())
 			ChangeState(State.Chasing);
         // 대기 시간을 다시 설정한다.
         waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
@@ -167,7 +168,7 @@ public class EnemyCtrl : MonoBehaviour
         //attackTarget = null;
     }
 
-    void dropItem()
+    void DropItem()
     {
         if (dropItemPrefab.Length == 0) { return; }
         GameObject dropItem = dropItemPrefab[Random.Range(0, dropItemPrefab.Length)];
@@ -177,7 +178,7 @@ public class EnemyCtrl : MonoBehaviour
     void Died()
 	{
         status.died = true;
-        dropItem();
+        DropItem();
         Destroy(gameObject);
     }
 	

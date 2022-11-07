@@ -10,8 +10,8 @@ public class ObjectStatus : MonoBehaviour
     public int Power = 10;
 
     public GameObject lastAttackTarget = null;
-    
-    public string characterName = "Player";
+
+    public string characterName;
 
     public bool battleMode = false;
     public bool attacking = false;

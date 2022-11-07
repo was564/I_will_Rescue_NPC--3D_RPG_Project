@@ -11,10 +11,14 @@ public class BossMonsterCtrl : MonoBehaviour
     public GameObject currentBoss;
     public Slider BossHP;
     public Text HPtxt;
+    //Interaction UI
+    public Slider m_SpaceBarSlider;
+
     private float[] targetHP = new float[3];
     void Start()
     {
         currentBoss = Instantiate(m_bossPref[0], transform.position, transform.rotation);
+        currentBoss.GetComponent<BossMonster>().Bossmonsterctrl = this;
         BossHP.value = 1.0f;
 
         targetHP[0] = 0.7f;
@@ -33,6 +37,7 @@ public class BossMonsterCtrl : MonoBehaviour
             Destroy(currentBoss);
             idx++;
             currentBoss = Instantiate(m_bossPref[idx], cPos, cRot);
+            currentBoss.GetComponent<BossMonster>().Bossmonsterctrl = this;
         }
 
     }

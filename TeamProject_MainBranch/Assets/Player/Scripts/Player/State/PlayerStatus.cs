@@ -21,6 +21,13 @@ public class PlayerStatus : MonoBehaviour
         
     }
 
+    public void HealPlayer(int value)
+    {
+        hp += value;
+        if (hp > 100)
+            hp = 100;
+    }
+
     // 데미지를 입을 함수 설정
     void AttackPlayer(int damage)
     {

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
@@ -68,6 +67,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody rigid;
     Animator anim;
     public Transform cameraTransform;
+
+    [SerializeField]
     GameObject Sword;
     void Start()
     {
@@ -251,7 +252,7 @@ public class PlayerController : MonoBehaviour
         if (healCycle > 1.0f)
         {
             // 플레이어의 체력 일정량 회복
-
+            GetComponent<PlayerStatus>().HealPlayer(1);
         }
 
     }

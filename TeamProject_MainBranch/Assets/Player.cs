@@ -67,25 +67,25 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-speed * Time.deltaTime, 0, 0);
+            //transform.Translate(-speed * Time.deltaTime, 0, 0);
             A_ = true;
 
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+            //transform.Translate(speed * Time.deltaTime, 0, 0);
            D_ = true;
 
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, 0, speed * Time.deltaTime);
+            //transform.Translate(0, 0, speed * Time.deltaTime);
            W_ = true;
 
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, 0, -speed * Time.deltaTime);
+            //transform.Translate(0, 0, -speed * Time.deltaTime);
            S_ = true;
         }
         else if (Input.GetKey(KeyCode.Space))

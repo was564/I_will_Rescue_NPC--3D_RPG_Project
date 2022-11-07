@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 
-public class TurtleAnimation : MonoBehaviour
+public class SimpleMeleeMobAnimation : MonoBehaviour
 {
     Animator animator;
     private AttackArea attackArea;
+    private float range = 4.0f;
     ObjectStatus status;
-    private EnemyCtrl enemyCtrl;
+    private SimpleMeleeMobCtrl enemyCtrl;
     Vector3 prePosition;
     bool isDown = false;
     bool attacked = false;
@@ -22,7 +23,7 @@ public class TurtleAnimation : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         status = GetComponent<ObjectStatus>();
-        enemyCtrl = GetComponent<EnemyCtrl>();
+        enemyCtrl = GetComponent<SimpleMeleeMobCtrl>();
         prePosition = transform.position;
         attackArea = GetComponentInChildren<AttackArea>();
     }
@@ -42,12 +43,12 @@ public class TurtleAnimation : MonoBehaviour
         {
             attacked = false;
         }
-        if (distance <= 2.0f)
+        if (distance <= range/2)
         {
             animator.SetBool("Attack1", (!attacked && status.attacking));
             animator.SetBool("Attack2", !(!attacked && status.attacking));
         }
-        else if (distance <= 4.0f)
+        else if (distance <= range)
         {
             animator.SetBool("Attack2", (!attacked && status.attacking));
             animator.SetBool("Attack1", !(!attacked && status.attacking));
@@ -82,13 +83,11 @@ public class TurtleAnimation : MonoBehaviour
     void StartAttackHit()
     {
         attackArea.SendMessage("OnAttack");
-        Debug.Log ("StartAttackHit");
     }
 	
     void EndAttackHit()
     {
         attackArea.SendMessage("OnAttackTermination");
-        Debug.Log ("EndAttackHit");
     }
 	
     void EndAttack()

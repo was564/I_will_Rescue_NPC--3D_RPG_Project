@@ -13,6 +13,7 @@ public class BossSkill
     
     public BossSkill(int damage, int coolTime, m_Skill _detail)
     {
+        m_Active = false;
         m_damage = damage;
         m_coolTime = coolTime;
         skill = _detail;

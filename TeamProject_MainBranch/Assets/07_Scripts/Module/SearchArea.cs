@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class SearchArea : MonoBehaviour
 {
-    private EnemyCtrl enemyCtrl;
+    private SimpleMeleeMobCtrl enemyCtrl;
     // Start is called before the first frame update
     void Start()
     {
-        enemyCtrl = transform.root.GetComponent<EnemyCtrl>();
+        enemyCtrl = transform.root.GetComponent<SimpleMeleeMobCtrl>();
     }
 
     // Update is called once per frame

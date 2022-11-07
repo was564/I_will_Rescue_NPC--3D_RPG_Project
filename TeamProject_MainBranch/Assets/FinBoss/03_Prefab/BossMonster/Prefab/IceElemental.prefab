@@ -1839,10 +1839,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillHndl: {fileID: 8256248099293149601}
+  Bossmonsterctrl: {fileID: 0}
   m_type: 0
   m_bossHand: {fileID: 5871114260137630009}
   m_throughObjectInHand: {fileID: 5989994759707331122}
   m_throughObjectPrefab: {fileID: 1990955351834220965, guid: 7d3ff5ebd72674e419d2f79b212b65a6, type: 3}
+  m_IceFreezecylider: {fileID: 145560707616212737, guid: 01e3dbcfe967556408582c30bab9e8cd, type: 3}
   m_EffectTornado: {fileID: 87350301984470404, guid: 20de34e972b5a5241b1f7a07a4029fc8, type: 3}
   m_shieldObject: {fileID: 6310974480031226193, guid: 33f8be155d61ab048b52763dfe186458, type: 3}
   m_bombguidPrefab: {fileID: 8343512302550149420, guid: 4f1eb6afc7854dd42a5d8dc03af1b116, type: 3}
@@ -1892,7 +1894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db9ce8338352714e98c7ca2e63b0186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NormalSkills: []
+  m_Skills: []
 --- !u!1 &107932315324306437
 GameObject:
   m_ObjectHideFlags: 0

@@ -182,7 +182,7 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
         Destroy(gameObject);
     }
 	
-	void Damage(AttackArea.AttackInfo attackInfo)
+	void Damage(AttackInfo attackInfo)
 	{
 		Debug.Log("Damage");
 		status.damaged = true;

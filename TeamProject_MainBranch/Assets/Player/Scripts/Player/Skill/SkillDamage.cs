@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordAttack : MonoBehaviour
-{ 
-
-    private void Awake()
-    {
-
-    }
-
+public class SkillDamage : MonoBehaviour
+{
+    // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         AttackInfo attack = new AttackInfo();
 
-        attack.attackPower = 5;
+        attack.attackPower = 10;
         attack.attacker = this.transform;
 
         if (other.gameObject.tag.Equals("Enemy"))
@@ -23,5 +18,4 @@ public class SwordAttack : MonoBehaviour
             Debug.Log(other.name + "À» ¶§¸²");
         }
     }
-
 }

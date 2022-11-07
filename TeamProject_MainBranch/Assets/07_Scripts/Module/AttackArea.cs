@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class AttackInfo
+{
+    public int attackPower; // 이 공격의 공격력.
+    public Transform attacker; // 공격자.
+}
+
 public class AttackArea : MonoBehaviour
 {
-    public class AttackInfo
-    {
-        public int attackPower; // 이 공격의 공격력.
-        public Transform attacker; // 공격자.
-    }
     
     private ObjectStatus status;
 

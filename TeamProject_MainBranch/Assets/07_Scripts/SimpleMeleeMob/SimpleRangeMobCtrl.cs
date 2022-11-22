@@ -36,6 +36,7 @@ public class SimpleRangeMobCtrl : MonoBehaviour
         Died,
     };
 
+    [SerializeField]
     private State state = State.Walking;
 
     private State nextState = State.Walking;
@@ -145,11 +146,16 @@ public class SimpleRangeMobCtrl : MonoBehaviour
     {
 	    // 이동할 곳을 플레이어에 설정한다.
 	    SendMessage("SetDestination", attackTarget.position);
-	    Debug.Log(gameObject.name + " send Message : setDestination");
 	    // 2미터 이내로 접근하면 공격한다.
-	    if (Vector3.Distance( attackTarget.position, transform.position ) <= range)
+	    if (Vector3.Distance( attackTarget.position, transform.position ) <= range
+	        && !usingBullet.activeSelf)
 	    {
 		    ChangeState(State.Attacking);
+	    }
+	    else if (Vector3.Distance(attackTarget.position, transform.position) <= range
+	             && usingBullet.activeSelf)
+	    {
+		    ChangeState(State.Walking);
 	    }
     }
 
@@ -220,6 +226,7 @@ public class SimpleRangeMobCtrl : MonoBehaviour
     {
 	    usingBullet.transform.position = transform.position + transform.forward + Vector3.up * 1;
 	    usingBullet.transform.rotation = Quaternion.Euler(transform.forward);
+	    usingBullet.GetComponent<Bullet>().currentDirection = attackTarget.position - transform.position;
 	    usingBullet.SetActive(true);
 	    
 	    usingBullet.SendMessage("SetTarget", attackTarget);

@@ -8,7 +8,6 @@ public class SimpleRangeMobAnimation : MonoBehaviour
 {
     Animator animator;
     private AttackArea attackArea;
-    private float range = 4.0f;
     ObjectStatus status;
     private SimpleRangeMobCtrl enemyCtrl;
     Vector3 prePosition;
@@ -32,27 +31,17 @@ public class SimpleRangeMobAnimation : MonoBehaviour
     void Update()
     {
         Vector3 delta_position = transform.position - prePosition;
-        animator.SetFloat("Speed", delta_position.magnitude / Time.deltaTime);
+        if (delta_position != Vector3.zero)
+        {
+            animator.SetFloat("Speed", delta_position.magnitude / Time.deltaTime);
+        }
 
-        
-        
-        float distance = Single.PositiveInfinity;
-        if(enemyCtrl.attackTarget != null) distance = Vector3.Distance(enemyCtrl.attackTarget.transform.position, transform.position);
-        
-        if(attacked && !status.attacking)
+        if (attacked && !status.attacking)
         {
             attacked = false;
         }
-        if (distance <= range/2)
-        {
-            animator.SetBool("Attack1", (!attacked && status.attacking));
-            animator.SetBool("Attack2", !(!attacked && status.attacking));
-        }
-        else if (distance <= range)
-        {
-            animator.SetBool("Attack2", (!attacked && status.attacking));
-            animator.SetBool("Attack1", !(!attacked && status.attacking));
-        }
+        animator.SetBool("Attack1", (!attacked && status.attacking && !enemyCtrl.usingBullet.activeSelf));
+        
 
         if(!isDown && status.died)
         {

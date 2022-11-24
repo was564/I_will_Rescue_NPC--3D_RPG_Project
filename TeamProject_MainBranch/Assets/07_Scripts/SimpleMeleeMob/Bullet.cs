@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private HitArea hit;
+    private Collider attackCollider;
+
+    private Transform attackTarget;
+
+    public Vector3 currentDirection;
+
+    private ObjectStatus objectStatus;
     
-    public GameObject bullet;
-
-    public Transform attackTarget;
-
-    private Quaternion currentDirection;
+    
     
     public float velocity = 2.0f;
     public float maxRotate = 0.3f;
@@ -23,28 +25,39 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentDirection.eulerAngles = (attackTarget.position - transform.position);
+        currentDirection = (attackTarget.position - transform.position);
         currentDirection.y = 0;
         currentDirection = currentDirection.normalized;
-        hit = GetComponent<HitArea>();
+        attackCollider = GetComponent<Collider>();
+        objectStatus = GetComponent<ObjectStatus>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += currentDirection.eulerAngles * (velocity * Time.deltaTime);
+        if (!attackCollider.enabled) attackCollider.enabled = true;
         
-        Quaternion goalDirection = Quaternion.Euler(attackTarget.position - transform.position);
+        transform.position += currentDirection * (velocity * Time.deltaTime);
+        
+        Vector3 goalDirection = attackTarget.position - transform.position;
         goalDirection.y = 0;
         goalDirection = goalDirection.normalized;
         
-        currentDirection = Quaternion.RotateTowards(currentDirection, goalDirection, maxRotate * Time.deltaTime);
+        currentDirection = Vector3.RotateTowards(
+            currentDirection, goalDirection,
+            maxRotate * Time.deltaTime, -maxRotate * Time.deltaTime);
+        currentDirection = currentDirection.normalized;
+        
+        transform.Rotate(10, 10, 10);
         
         aliveTime += Time.deltaTime;
-        if ( hit.damageTrigger == true)
+        if ( objectStatus.lastAttackTarget || aliveTime >= maxAliveTime)
         {
+            aliveTime = 0.0f;
+            objectStatus.lastAttackTarget = null;
             this.gameObject.SetActive(false);
         }
+
     }
 
     void SetTarget(Transform target)

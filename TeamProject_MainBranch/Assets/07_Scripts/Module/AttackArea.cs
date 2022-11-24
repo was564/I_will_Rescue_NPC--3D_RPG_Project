@@ -16,7 +16,7 @@ public class AttackArea : MonoBehaviour
     private Collider attackCollider;
 
     private Animator animator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +48,8 @@ public class AttackArea : MonoBehaviour
     {
         if (other.tag != "Player") return;
         
-        // other.SendMessage("Damage",GetAttackInfo());
-        
+        //other.SendMessage("Damage",GetAttackInfo());
+
         status.lastAttackTarget = other.transform.root.gameObject;
     }
     

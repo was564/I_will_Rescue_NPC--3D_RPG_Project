@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: ac8a32e5107b67a47939926c52798a2b, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34609905, g: 0.63212776, b: 0.86864024, a: 1}
+  m_IndirectSpecularColor: {r: 0.34609836, g: 0.6321287, b: 0.86864096, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2719,13 +2719,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTarget: {fileID: 0}
-  range: 4
+  range: 7
   waitBaseTime: 2
   walkRange: 15
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab: []
   bullet: {fileID: 6531793022095801764, guid: 917f18af28a3ddd4b842a8c8ff08eeb3, type: 3}
   usingBullet: {fileID: 0}
+  state: 0
 --- !u!114 &745483875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2738,7 +2739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30aeeb4e7ea8cc54c8b62b8865f5a897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDistance: 0.3
+  stoppingDistance: 6
   arrived: 0
   destination: {x: 0, y: 0, z: 0}
   walkSpeed: 3
@@ -7412,7 +7413,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1960362298 stripped
 Transform:
@@ -7550,7 +7551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.11
+      value: 63.85
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalPosition.y

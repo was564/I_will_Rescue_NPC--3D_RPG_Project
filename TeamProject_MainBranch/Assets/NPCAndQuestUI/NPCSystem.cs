@@ -10,7 +10,6 @@ public class QuestInfo //외부에서 입력 가능
 
     //Quest Progress text
     public string contents;
-    [System.NonSerialized]
     public int queststringProgress=0;
     public List<string> questDialog;//퀘스트 주고 나서의 대사
     public string defaultDialog;//퀘스트 주고 나서의 대사
@@ -49,7 +48,7 @@ public class NPCSystem : MonoBehaviour
     void Start()
     {
         DialogActive = false;
-        m_DoneQuestCount = 0;
+        m_DoneQuestCount = -1;
         isProgressingQuest = false;
         PlayerLock = false;
         m_QuestCount = m_QuestInfos.Count;
@@ -65,6 +64,11 @@ public class NPCSystem : MonoBehaviour
         if (!NPCActive) return;
         if (DialogActive && Input.GetKeyDown(KeyCode.E))
         {
+            if(!isProgressingQuest)
+            {
+                m_DoneQuestCount++;
+            }
+
             //SetActive Dialog Window
             Debug.Log("ActiveDialog");
             MainCam.SetActive(false);
@@ -88,20 +92,13 @@ public class NPCSystem : MonoBehaviour
             }
 
             UI_Dialog.SetActive(false);
+            //PlayerLock
+            GameObject.FindGameObjectWithTag("Player").SendMessage("PlayerMovementFix", false);
             NPC_Cam.SetActive(false);
             MainCam.SetActive(true);
 
-
-            //PlayerLock
-            GameObject.FindGameObjectWithTag("Player").SendMessage("PlayerMovementFix", false);
-
             NPCActive = false;
 
-            if (!isProgressingQuest) return;
-
-            //퀘스트 완료시
-            if (m_QuestInfos[m_DoneQuestCount].totalCnt == m_QuestInfos[m_DoneQuestCount].completeCnt)
-                isProgressingQuest = false;
         }
     }
 
@@ -116,24 +113,25 @@ public class NPCSystem : MonoBehaviour
 
     }
 
+
     private void SetDialog()
     {
         UI_Dialog.SetActive(true);
         if (isProgressingQuest)//퀘스트 중일 떄 말걸었을ㄸ(ㅒ
         {
             //퀘스트 완료X
-            if (m_QuestInfos[m_DoneQuestCount].totalCnt != m_QuestInfos[m_DoneQuestCount].completeCnt)
+            if (m_QuestInfos[m_DoneQuestCount].totalCnt > m_QuestInfos[m_DoneQuestCount].completeCnt)
             {
                 UI_Dialog.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = m_QuestInfos[m_DoneQuestCount].defaultDialog;
             }
             else//퀘스트 완료0
             {
+                Debug.Log("퀘스트 완료");
                 UI_Dialog.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = m_QuestInfos[m_DoneQuestCount].ClearDialog;
                 isProgressingQuest = false;
-
                 Quest_MANAGER.RemoveQuest(m_QuestInfos[m_DoneQuestCount]);
+                Debug.Log(m_DoneQuestCount);
 
-                m_DoneQuestCount++;
             }
 
             return;
@@ -160,7 +158,10 @@ public class NPCSystem : MonoBehaviour
         T_Name.text = name;
         T_Dialog.text = currentQuest.questDialog[currentQuest.queststringProgress];
 
-        if (m_QuestInfos[m_DoneQuestCount].questDialog.Count < m_QuestInfos[m_DoneQuestCount].queststringProgress) return;
+        if (m_QuestInfos[m_DoneQuestCount].questDialog.Count <= m_QuestInfos[m_DoneQuestCount].queststringProgress)
+        {
+            return;
+        }
         m_QuestInfos[m_DoneQuestCount].queststringProgress++;
     }
     //몬스터 처치시 불러와진다.

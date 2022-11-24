@@ -24,11 +24,12 @@ public class QuestManagerSystem : MonoBehaviour
         this.ActiveQuestsList.Add(questinfo);
         questinfo.gameObject = Instantiate(QuestBoardPrefab, QuestBoardPrefab.transform.position, QuestBoardPrefab.transform.rotation);
         questinfo.gameObject.transform.SetParent(QuestListContents.transform);
+        Debug.Log("AddQuest");
     }
 
     public void RemoveQuest(QuestInfo questinfo)
     {
-        Destroy(questinfo.gameObject);
+        Destroy(questinfo.gameObject); 
         this.ActiveQuestsList.Remove(questinfo);
     }
     // Update is called once per frame

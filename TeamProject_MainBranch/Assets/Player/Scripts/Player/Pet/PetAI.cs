@@ -15,14 +15,24 @@ public class PetAI : MonoBehaviour
     Animator anim;
     Rigidbody rigid;
     Transform prevTransform;
+
+    // 펫의 클래스를 지정 (디폴트는 치유형이다)
+    [SerializeField]
     PET_CLASS petClass = PET_CLASS.HEAL;
 
     PlayerStatus playerStatus;
 
     // 포션 생성 기술 쿨타임
     float ct_skillMax = 30.0f;
+
     [SerializeField]
     float ct_skill = 0.0f;
+    [SerializeField]
+    GameObject ef_DefenceSKill;
+
+    [SerializeField]
+    public bool RecognizeEnemy = false;
+
 
     [SerializeField]
     bool skillCoolTime = false;
@@ -41,7 +51,6 @@ public class PetAI : MonoBehaviour
         playerStatus = GameObject.Find("Player").GetComponent<PlayerStatus>();
     }
 
-
     void Update()
     {
         SetAnimation();
@@ -54,7 +63,7 @@ public class PetAI : MonoBehaviour
 
     }
 
-    void UpdateCoolTime()
+   void UpdateCoolTime()
     {
         if(ct_skill >= ct_skillMax)
         {
@@ -83,17 +92,34 @@ public class PetAI : MonoBehaviour
         {
             // 플레이어의 체력이 달아있는 경우에만 스킬을 사용
             if (playerStatus.getPlayerHP() < playerStatus.hp_max)
+            {
                 CreatePotion();
+            }
         }
         else if (petClass == PET_CLASS.ATTACK)
-        { }
+        {
+        
+        }
         else if (petClass == PET_CLASS.DEFENCE)
-        { }
+        { 
+            if(RecognizeEnemy)
+            {
+                CreateDefenseArea();
+            }
+        }
     }
 
     void CreatePotion()
     {
         anim.SetTrigger("CreatePotion");
+
+        skillCoolTime = false;
+        ct_skill = 0.0f;
+    }
+
+    void CreateDefenseArea()
+    {
+        anim.SetTrigger("DeffenceAreaExpansion");
 
         skillCoolTime = false;
         ct_skill = 0.0f;
@@ -105,6 +131,13 @@ public class PetAI : MonoBehaviour
         potion.transform.position = transform.position;
 
         Debug.Log("Instance Potion");
+    }
+    void DefenceAreaOn()
+    {
+        GameObject zone = Instantiate(ef_DefenceSKill);
+        zone.transform.position = transform.position;
+
+        Debug.Log("Active DefencArea");
     }
 
 

@@ -112834,6 +112834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 5
+  doingQuest: 0
   ef_heal: {fileID: 707922657}
   ef_buf: {fileID: 1298296726}
   ef_meleeSkill: {fileID: 1231036836}
@@ -112855,8 +112856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4471491e8fb0c4429be83e6cf50b1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 70
+  hp_max: 100
   damage: 5
+  isInDefenceArea: 0
 --- !u!1 &8234270017150798387
 GameObject:
   m_ObjectHideFlags: 0

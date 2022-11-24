@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class SkillDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    int power;
+
+    private void Awake()
+    {
+        power = GameObject.Find("Player").GetComponent<PlayerStatus>().getPlayerDamage();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         AttackInfo attack = new AttackInfo();
 
-        attack.attackPower = 10;
+        attack.attackPower = power + 5;
         attack.attacker = this.transform;
 
         if (other.gameObject.tag.Equals("Enemy"))

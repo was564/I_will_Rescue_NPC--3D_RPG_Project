@@ -74,7 +74,7 @@ public class NPCSystem : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").transform.position
                 = this.transform.position + Vector3.forward * 5.0f;
             //PlayerLock
-            //GameObject.FindGameObjectWithTag("Player").SendMessage("PlayerMovementFix", false);
+            GameObject.FindGameObjectWithTag("Player").SendMessage("PlayerMovementFix", true);
             lastPlayerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
 
@@ -84,18 +84,16 @@ public class NPCSystem : MonoBehaviour
             if (m_QuestInfos[m_DoneQuestCount].questDialog.Count > m_QuestInfos[m_DoneQuestCount].queststringProgress)
             {
                 UpadateQuestDialog();
-
                 return;
             }
 
             UI_Dialog.SetActive(false);
-            GameObject.FindGameObjectWithTag("Player").transform.position = lastPlayerPos;
             NPC_Cam.SetActive(false);
             MainCam.SetActive(true);
 
 
             //PlayerLock
-            //GameObject.FindGameObjectWithTag("Player").SendMessage("PlayerMovementFix", false);
+            GameObject.FindGameObjectWithTag("Player").SendMessage("PlayerMovementFix", false);
 
             NPCActive = false;
 
@@ -162,7 +160,7 @@ public class NPCSystem : MonoBehaviour
         T_Name.text = name;
         T_Dialog.text = currentQuest.questDialog[currentQuest.queststringProgress];
 
-        if (m_QuestInfos[m_DoneQuestCount].questDialog.Count <= m_QuestInfos[m_DoneQuestCount].queststringProgress) return;
+        if (m_QuestInfos[m_DoneQuestCount].questDialog.Count < m_QuestInfos[m_DoneQuestCount].queststringProgress) return;
         m_QuestInfos[m_DoneQuestCount].queststringProgress++;
     }
     //몬스터 처치시 불러와진다.

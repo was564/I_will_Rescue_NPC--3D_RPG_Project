@@ -112,8 +112,8 @@ public class PlayerController : MonoBehaviour
     {
         doingQuest = bValue;
 
-        GameObject camera = GameObject.Find("Main Camera");
-        camera.GetComponent<Follow>().SetCameraFix(bValue);
+        GameObject camera = GameObject.FindGameObjectWithTag("Camera");
+      //  camera.GetComponent<Follow>().SetCameraFix(bValue);
     }
 
     void UpdateCoolTime()

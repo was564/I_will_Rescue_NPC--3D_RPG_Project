@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 3396980}
   - component: {fileID: 2371092}
   - component: {fileID: 6485838}
+  - component: {fileID: 3039578216997533239}
+  - component: {fileID: 1769214977453336893}
+  - component: {fileID: 3302105110434554317}
   m_Layer: 0
   m_Name: Gatehouse_New
   m_TagString: Untagged
@@ -91,8 +94,47 @@ MeshCollider:
   m_GameObject: {fileID: 173996}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 950a899a61407f04692504e9f4a96075, type: 3}
+--- !u!65 &3039578216997533239
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 2.2500005, z: 2.3000004}
+  m_Center: {x: 0.9, y: -0.12500003, z: 0.15}
+--- !u!65 &1769214977453336893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 2.2500005, z: 2.3000004}
+  m_Center: {x: -0.9, y: -0.12500003, z: 0.15}
+--- !u!65 &3302105110434554317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 2.2500005, z: 0.6}
+  m_Center: {x: 0, y: -0.12500003, z: 0.95}

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5442020193720106143}
   - component: {fileID: 3953868240806954665}
   - component: {fileID: 7341570376238152272}
-  - component: {fileID: 7331336082560924301}
+  - component: {fileID: -3468388833583390278}
+  - component: {fileID: 8455365035700158348}
   m_Layer: 0
   m_Name: PA_Mountainset1_hill1
   m_TagString: Untagged
@@ -82,8 +83,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7331336082560924301
-BoxCollider:
+--- !u!64 &-3468388833583390278
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069872863127178892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1540718353728251848, guid: e28bdfb0f19492f4c90a654d5d281c24, type: 3}
+--- !u!135 &8455365035700158348
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,5 +108,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 35, y: 20, z: 38}
-  m_Center: {x: 0, y: 10.162635, z: -0.00000667572}
+  m_Radius: 22
+  m_Center: {x: 0, y: 0, z: -0.7}

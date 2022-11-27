@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2705411943419533475}
   - component: {fileID: 8554311237449884762}
   - component: {fileID: 5026320675215948564}
+  - component: {fileID: 8554514439874406074}
   m_Layer: 0
   m_Name: PA_Mountainset1_hill5
   m_TagString: Untagged
@@ -95,3 +96,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 32, y: 33, z: 38}
   m_Center: {x: 0, y: 17.138199, z: -0.000002861023}
+--- !u!64 &8554514439874406074
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965692035863089286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2719957851288900639, guid: d7a260bca1a34194ebcc80e76490a649, type: 3}

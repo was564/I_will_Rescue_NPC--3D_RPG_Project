@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3335046}
   - component: {fileID: 2361292}
   - component: {fileID: 6479654}
+  - component: {fileID: 1935170532096463724}
   m_Layer: 0
   m_Name: Tower 2_New
   m_TagString: Untagged
@@ -91,8 +92,22 @@ MeshCollider:
   m_GameObject: {fileID: 178058}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 950a899a61407f04692504e9f4a96075, type: 3}
+--- !u!136 &1935170532096463724
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.8
+  m_Height: 10
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}

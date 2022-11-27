@@ -25,11 +25,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369422119553428131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.5153587, y: -0.48415434, z: 0.5153587, w: 0.48415434}
+  m_LocalPosition: {x: 0.2682174, y: 0.09544894, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1373423332311059476}
+  m_Father: {fileID: 1373203009489976218}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1369422119553428156
@@ -139,11 +139,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369422121375625602}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.5153587, y: -0.48415434, z: 0.5153587, w: 0.48415434}
+  m_LocalPosition: {x: 0.2682174, y: 0.09544894, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1373423332311059476}
+  m_Father: {fileID: 1373203009489976218}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1369422121375625631
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2fde96ce5dfae4da1ba8b3eeeb8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTrigger: 0
 --- !u!1 &1369882411627282714
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +202,8 @@ Transform:
   - {fileID: 1373220113616651050}
   - {fileID: 1373937706390516658}
   - {fileID: 1373441380170558440}
+  - {fileID: 1369422121375625629}
+  - {fileID: 1369422119553428130}
   m_Father: {fileID: 1373176677204269058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -610,8 +613,6 @@ Transform:
   - {fileID: 1373176677204269058}
   - {fileID: 1373461147203274776}
   - {fileID: 1369422119747654631}
-  - {fileID: 1369422121375625629}
-  - {fileID: 1369422119553428130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -693,6 +694,8 @@ MonoBehaviour:
   walkRange: 15
   basePosition: {x: 0, y: 0, z: 0}
   dropItemPrefab: []
+  bullet: {fileID: 0}
+  usingBullet: {fileID: 0}
 --- !u!114 &1369422119831182674
 MonoBehaviour:
   m_ObjectHideFlags: 0

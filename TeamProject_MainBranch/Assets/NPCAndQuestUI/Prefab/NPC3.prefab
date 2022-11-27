@@ -1213,7 +1213,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!114 &5955689376557550296
 MonoBehaviour:
@@ -1231,11 +1231,14 @@ MonoBehaviour:
   MainCam: {fileID: 0}
   NPC_Cam: {fileID: 0}
   NPCActive: 0
-  name: "\uC0C1\uC778\u3147"
+  name: "\uC0C1\uC778"
   m_QuestInfos:
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 0
     contents: "\uC5F0\uACC4\uD615 \uC77C\uBC18 \uACF5\uACA9\uB9CC \uC0AC\uC6A9\uD558\uC5EC
       \uAE30\uBCF8 \uBAAC\uC2A4\uD130 \uCC98\uCE58"
+    queststringProgress: 0
     questDialog:
     - "\uC800\uB294 \uC774 \uB9C8\uC744\uC758 \uC0C1\uC778\uC774\uC5D0\uC694...\uBAAC\uC2A4\uD130\uB4E4\uC774
       \uAC70\uB798 \uD488\uBAA9\uC744 \uB2E4 \uD6D4\uCCD0\uAC00 \uBC84\uB838\uC5B4\uC694..."
@@ -1251,7 +1254,10 @@ MonoBehaviour:
     totalCnt: 10
     completeCnt: 0
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 1
     contents: "\uAC70\uB798 \uD488\uBAA9 \uD68C\uC218\uD558\uAE30"
+    queststringProgress: 0
     questDialog:
     - "\uBD84\uBA85\uD574\uC694!! \uC720\uB839\uAC19\uC774\uC0DD\uAE34..\uC544\uB2C8!
       \uC720\uB839\uBCF4\uB2E4 \uB354 \uC12C\uB729\uD558\uAC8C \uC0DD\uAE34 \uB140\uC11D\uC774
@@ -1265,7 +1271,10 @@ MonoBehaviour:
     totalCnt: 1
     completeCnt: 0
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 2
     contents: "\u201C\uB354\uC6B1 \uAC15\uD574\uC838\uB77C"
+    queststringProgress: 0
     questDialog:
     - "\uB3D9\uBC18\uC790\uB294 \uC6A9\uC0AC\uB2D8\uC758 \uB2A5\uB825\uC5D0 \uB530\uB77C
       \uAE30\uB7C9\uC774 \uB2EC\uB77C\uC838\uC694!"

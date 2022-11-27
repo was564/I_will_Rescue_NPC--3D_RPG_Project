@@ -1390,8 +1390,11 @@ MonoBehaviour:
   name: "\uB18D\uBD80"
   m_QuestInfos:
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 0
     contents: "\uC6D0\uAC70\uB9AC \uC2A4\uD0AC\uC744 \uC0AC\uC6A9\uD558\uC5EC \uAE30\uBCF8
       \uBAAC\uC2A4\uD130 \uC815\uD654"
+    queststringProgress: 0
     questDialog:
     - "\uB0B4\uAC00 \uC5F4\uC2EC\uD788 \uC9C0\uC740 \uB18D\uC0AC\uB4E4\uC774!!! \uB2E4
       \uB9DD\uAC00\uC838 \uBC84\uB838\uC5B4...."
@@ -1412,7 +1415,10 @@ MonoBehaviour:
     totalCnt: 10
     completeCnt: 0
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 1
     contents: "\u201C\uB728\uAC70\uC6CC\uC9C4 \uB545 \uC2DD\uD788\uAE30"
+    queststringProgress: 0
     questDialog:
     - "\uC800\uC5B4\uAE30~\uBCF4\uC5EC?? \uD654\uC0B0 \uADFC\uCC98\uC5D0 \uBB34\uC2DC\uBB34\uC2DC\uD55C
       \uAD34\uBB3C\uC774 \uC628 \uB4A4\uB85C \uB545\uC774 \uB108\uBB34 \uB728\uAC70\uC6CC.."
@@ -1424,7 +1430,10 @@ MonoBehaviour:
     totalCnt: 1
     completeCnt: 0
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 2
     contents: "\uB3D9\uBC18\uC790\uC640 \uD568\uAED8 \uB3CC\uC544\uC624\uAE30"
+    queststringProgress: 0
     questDialog:
     - "\uC0AC\uC2E4...\uC800 \uAD34\uBB3C\uB9D0\uACE0 \uB354 \uC694\uC0C1\uD558\uAC8C
       \uC0DD\uAE34 \uB140\uC11D\uC774 \uC788\uC5B4.."
@@ -1451,7 +1460,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &6307696499487437727
 GameObject:

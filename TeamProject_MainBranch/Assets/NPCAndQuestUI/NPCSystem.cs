@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class QuestInfo //외부에서 입력 가능
 {
     public GameObject gameObject = null;
+    public GameObject targetNPC;
 
+    public int questType;
     //Quest Progress text
     public string contents;
     public int queststringProgress=0;
@@ -56,6 +58,12 @@ public class NPCSystem : MonoBehaviour
         Quest_MANAGER = UI_MANAGER.GetComponent<QuestManagerSystem>();
         MainCam = GameObject.FindGameObjectWithTag("MainCamera");
 
+
+        //Quest target NPC 설정
+        for(int i = 0; i < m_QuestInfos.Count;i++)
+        {
+            m_QuestInfos[i].targetNPC = this.gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -164,12 +172,8 @@ public class NPCSystem : MonoBehaviour
         }
         m_QuestInfos[m_DoneQuestCount].queststringProgress++;
     }
-    //몬스터 처치시 불러와진다.
-    public void NPCFirstQuestMessage()
-    {
-        if (m_DoneQuestCount != 0) return;
 
-        m_QuestInfos[m_DoneQuestCount].completeCnt++;
-    }
+
+  
 
 }

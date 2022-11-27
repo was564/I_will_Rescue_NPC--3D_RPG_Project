@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377466109501424000}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 1.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1475022135663910126}
@@ -269,7 +269,10 @@ MonoBehaviour:
   name: "\uB300\uC7A5\uC7A5\uC774"
   m_QuestInfos:
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 0
     contents: "\uB9DD\uCE58\uC758 \uC704\uCE58\uC5D0 \uB300\uD55C \uB2E8\uC11C \uCC3E\uAE30"
+    queststringProgress: 0
     questDialog:
     - "\uBAAC\uC2A4\uD130\uAC00 \uC2B5\uACA9\uD558\uACE0...\uB09C \uC815\uC2E0\uC5C6\uC774
       \uB3C4\uB9DD\uAC14\uC9C0..."
@@ -288,7 +291,10 @@ MonoBehaviour:
     totalCnt: 10
     completeCnt: 0
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 1
     contents: "\uACE0\uB300\uBCF4\uC2A4\uB85C\uBD80\uD130 \uB9DD\uCE58 \uD68C\uC218\uD558\uAE30"
+    queststringProgress: 0
     questDialog:
     - "\uADF8 \uAC70\uB300\uD55C \uB140\uC11D\uC73C\uB85C\uBD80\uD130 \uB9DD\uCE58\uB97C
       \uCC3E\uC544\uC640 \uC904 \uC218 \uC788\uACA0\uB098?"
@@ -299,7 +305,10 @@ MonoBehaviour:
     totalCnt: 1
     completeCnt: 0
   - gameObject: {fileID: 0}
+    targetNPC: {fileID: 0}
+    questType: 2
     contents: "\uB2E4\uB978 \uC9C0\uC5ED \uC9C0\uC6D0\uD558\uAE30"
+    queststringProgress: 0
     questDialog:
     - "\uB098\uB3C4 \uB098\uC9C0\uB9CC, \uB2E4\uB978 \uC9C0\uC5ED \uB9C8\uC744 \uC0AC\uB78C\uB4E4\uB3C4
       \uB3C4\uC6C0\uC774 \uD544\uC694\uD560\uAC70\uC57C."
@@ -324,7 +333,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 3
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &2780402811371862703
 GameObject:

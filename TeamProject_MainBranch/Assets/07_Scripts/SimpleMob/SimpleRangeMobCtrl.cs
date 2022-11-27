@@ -195,6 +195,7 @@ public class SimpleRangeMobCtrl : MonoBehaviour
 	{
         status.died = true;
         DropItem();
+        GameObject.FindWithTag("UIManager").GetComponent<QuestManagerSystem>().SendMessage("NPCFirstQuestMessage");
         Destroy(gameObject);
     }
 	

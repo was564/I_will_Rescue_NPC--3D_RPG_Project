@@ -20,6 +20,7 @@ public class ChangeSceneCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player")) return;
         gameSceneManager.SendMessage("ActivateScene", gameObject.name);
     }
 }

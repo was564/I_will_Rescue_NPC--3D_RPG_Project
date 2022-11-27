@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.34609836, g: 0.6321287, b: 0.86864096, a: 1}
+  m_IndirectSpecularColor: {r: 0.34609905, g: 0.63212776, b: 0.86864024, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42746,10 +42746,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5955689376557550296, guid: a1a82ee6c4d979d46959d8cb99c217d2, type: 3}
-      propertyPath: name
-      value: "\uC0C1\uC778"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5955689376557550296, guid: a1a82ee6c4d979d46959d8cb99c217d2, type: 3}
       propertyPath: NPC_Cam
       value: 
       objectReference: {fileID: 1345027642}
@@ -52698,10 +52694,6 @@ PrefabInstance:
     - target: {fileID: 2459824156724899581, guid: 80e7cce40149cb8429990e0c44c62ebe, type: 3}
       propertyPath: m_Name
       value: NPC1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2523905448943925132, guid: 80e7cce40149cb8429990e0c44c62ebe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80e7cce40149cb8429990e0c44c62ebe, type: 3}

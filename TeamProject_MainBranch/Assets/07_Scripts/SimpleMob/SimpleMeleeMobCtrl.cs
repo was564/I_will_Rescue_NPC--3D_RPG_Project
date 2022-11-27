@@ -186,7 +186,11 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
 	{
         status.died = true;
         DropItem();
+
+        GameObject.FindWithTag("UIManager").GetComponent<QuestManagerSystem>().SendMessage("NPCFirstQuestMessage");
         Destroy(gameObject);
+
+
     }
 	
 	void Damage(AttackInfo attackInfo)

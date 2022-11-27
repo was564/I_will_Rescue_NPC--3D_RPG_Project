@@ -44,4 +44,22 @@ public class QuestManagerSystem : MonoBehaviour
             T_PrgressCnt.text = "(" + ActiveQuestsList[i].completeCnt + "/" + ActiveQuestsList[i].totalCnt + ")";
         }
     }
+
+    //몬스터 처치시 불러와진다.
+    public void NPCFirstQuestMessage()
+    {
+        for (int i = 0; i < ActiveQuestsList.Count; i++)
+        {
+            if (ActiveQuestsList[i].targetNPC.name != "NPC1") continue;
+            if (ActiveQuestsList[i].questType != 0) continue;
+
+            ActiveQuestsList[i].completeCnt++;
+
+            Text T_PrgressCnt = ActiveQuestsList[i].gameObject.transform.GetChild(1).GetComponent<Text>();
+
+            T_PrgressCnt.text = "(" + ActiveQuestsList[i].completeCnt + "/" + ActiveQuestsList[i].totalCnt + ")";
+        }
+        
+    }
+
 }

@@ -140,6 +140,13 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
     // 추적 중.
     void Chasing()
     {
+	    if (attackTarget is null)
+	    {
+		    status.battleMode = false;
+		    ChangeState(State.Walking);
+		    return;
+	    }
+	    
 	    // 이동할 곳을 플레이어에 설정한다.
 	    SendMessage("SetDestination", attackTarget.position);
 	    Debug.Log(gameObject.name + " send Message : setDestination");
@@ -188,10 +195,9 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
         DropItem();
 
         GameObject.FindWithTag("UIManager").GetComponent<QuestManagerSystem>().SendMessage("NPCFirstQuestMessage");
-        Destroy(gameObject);
 
-
-    }
+        gameObject.SetActive(false);
+	}
 	
 	void Damage(AttackInfo attackInfo)
 	{

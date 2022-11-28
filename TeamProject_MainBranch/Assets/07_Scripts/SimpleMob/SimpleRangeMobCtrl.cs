@@ -33,6 +33,7 @@ public class SimpleRangeMobCtrl : MonoBehaviour
         Walking,
         Chasing,
         Attacking,
+        Escaping,
         Died,
     };
 
@@ -70,6 +71,9 @@ public class SimpleRangeMobCtrl : MonoBehaviour
             case State.Attacking:
                 Attacking();
                 break;
+            case State.Escaping:
+	            Escaping();
+	            break;
         }
         if (state != nextState)
         {
@@ -144,7 +148,14 @@ public class SimpleRangeMobCtrl : MonoBehaviour
     // 추적 중.
     void Chasing()
     {
-	    // 이동할 곳을 플레이어에 설정한다.
+	    if (attackTarget is null)
+	    {
+		    status.battleMode = false;
+		    ChangeState(State.Walking);
+		    return;
+	    }
+
+		    // 이동할 곳을 플레이어에 설정한다.
 	    SendMessage("SetDestination", attackTarget.position);
 	    // 2미터 이내로 접근하면 공격한다.
 	    if (Vector3.Distance( attackTarget.position, transform.position ) <= range
@@ -177,13 +188,28 @@ public class SimpleRangeMobCtrl : MonoBehaviour
 	void Attacking()
 	{
 		if (mobAnimation.IsAttacked())
-			ChangeState(State.Chasing);
+			ChangeState(State.Escaping);
         // 대기 시간을 다시 설정한다.
         waitTime = Random.Range(waitBaseTime, waitBaseTime * 2.0f);
         // 타겟을 리셋한다.
         //attackTarget = null;
     }
 
+	void EscapeStart()
+	{
+		StateStartCommon();
+	}
+
+	void Escaping()
+	{
+		if(!usingBullet.activeSelf)
+			ChangeState(State.Chasing);
+
+		Vector3 directionForRunAway = this.transform.position - attackTarget.transform.position;
+		
+		movement.SendMessage("SetDestination", (directionForRunAway.normalized * 3));
+	}
+	
     void DropItem()
     {
         if (dropItemPrefab.Length == 0) { return; }
@@ -196,8 +222,9 @@ public class SimpleRangeMobCtrl : MonoBehaviour
         status.died = true;
         DropItem();
         GameObject.FindWithTag("UIManager").GetComponent<QuestManagerSystem>().SendMessage("NPCFirstQuestMessage");
-        Destroy(gameObject);
-    }
+        
+        this.gameObject.SetActive(false);
+	}
 	
 	void Damage(AttackInfo attackInfo)
 	{
@@ -227,7 +254,7 @@ public class SimpleRangeMobCtrl : MonoBehaviour
     {
 	    usingBullet.transform.position = transform.position + transform.forward + Vector3.up * 1;
 	    usingBullet.transform.rotation = Quaternion.Euler(transform.forward);
-	    usingBullet.GetComponent<Bullet>().currentDirection = attackTarget.position - transform.position;
+	    usingBullet.GetComponent<Bullet>().currentDirection = (attackTarget.position - transform.position).normalized;
 	    usingBullet.SetActive(true);
 	    
 	    usingBullet.SendMessage("SetTarget", attackTarget);

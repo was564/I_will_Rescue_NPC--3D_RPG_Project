@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SimpleMobSpawner : MonoBehaviour
 {
     public List<GameObject> meleeMobTypes;
     public List<GameObject> rangedMobTypes;
 
+    public float intervalSpawnMobAndPlayer = 20.0f;
+    
     public int amountMobs = 10;
 
     // n(RangedMobs) / {n(MeleeMobs) + n(RangedMobs)}
@@ -16,9 +21,18 @@ public class SimpleMobSpawner : MonoBehaviour
     
     private Dictionary<int, GameObject> Mobs = new Dictionary<int, GameObject>();
 
+    [SerializeField]
+    private GameObject[] MobsList;
+    
+    private Transform playerTransform;
+
+    private float spawnTime = 0.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
         GetComponent<Renderer>().enabled = false;
         
         for (int i = 0; i < amountMobs; i++)
@@ -46,6 +60,8 @@ public class SimpleMobSpawner : MonoBehaviour
                 Mobs.Add(mob.GetInstanceID(), mob);
             }
         }
+
+        MobsList = Mobs.Values.ToArray();
         
         SpawnMobs();
     }
@@ -53,23 +69,25 @@ public class SimpleMobSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spawnTime += Time.deltaTime;
+        if (spawnTime <= 3.0f)
+            return;
         
+        foreach (var mob in Mobs.Values)
+        {
+            if (!mob.activeSelf)
+            {
+                SpawnMob(mob);
+            }
+        }
+
+        spawnTime = 0.0f;
     }
 
     private void SpawnMobs()
     {
         foreach (GameObject mob in Mobs.Values)
-        {
-            Vector3 position = new Vector3(
-                transform.position.x + Random.Range(-spawnRange, spawnRange),
-                0,
-                transform.position.z + Random.Range(-spawnRange, spawnRange)
-            );
-            // reference : https://docs.unity3d.com/ScriptReference/Terrain.SampleHeight.html
-            position.y = Terrain.activeTerrain.SampleHeight(position) + 0.5f;
-            mob.transform.position = position;
-            mob.SetActive(true);
-        }
+            SpawnMob(mob);
     }
 
     private void DeactivateMobs()
@@ -80,5 +98,30 @@ public class SimpleMobSpawner : MonoBehaviour
             mob.transform.position = position;
             mob.SetActive(false);
         }
+    }
+
+    private void SpawnMob(GameObject mob)
+    {
+        Vector3 position;
+        while (true)
+        {
+            position = new Vector3(
+                transform.position.x + Random.Range(-spawnRange, spawnRange),
+                0,
+                transform.position.z + Random.Range(-spawnRange, spawnRange)
+            );
+            if (Vector3.SqrMagnitude(playerTransform.position - position) >
+                intervalSpawnMobAndPlayer * intervalSpawnMobAndPlayer)
+                break;
+        }
+
+        // reference : https://docs.unity3d.com/ScriptReference/Terrain.SampleHeight.html
+        position.y = Terrain.activeTerrain.SampleHeight(position) + 0.5f;
+        mob.transform.position = position;
+        
+        ObjectStatus mobStatus = mob.GetComponent<ObjectStatus>();
+        mobStatus.HP = mobStatus.MaxHP;
+        
+        mob.SetActive(true);
     }
 }

@@ -9,10 +9,9 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
     private Movement movement;
     private ObjectStatus status;
     private SimpleMeleeMobAnimation mobAnimation;
-    private AttackArea attackArea;
     
     public Transform attackTarget;
-    
+
     public float range = 4.0f;
     
     public float waitBaseTime = 2.0f;
@@ -25,10 +24,6 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
 
     public GameObject[] dropItemPrefab;
 
-    public GameObject bullet;
-
-    public GameObject usingBullet;
-
     enum State
     {
         Walking,
@@ -37,7 +32,6 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
         Died,
     };
 
-    [SerializeField]
     private State state = State.Walking;
 
     private State nextState = State.Walking;
@@ -50,7 +44,6 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
         waitTime = waitBaseTime;
         status = GetComponent<ObjectStatus>();
         mobAnimation = GetComponent<SimpleMeleeMobAnimation>();
-        attackArea = GetComponentInChildren<AttackArea>();
     }
 
     // Update is called once per frame
@@ -186,15 +179,12 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
 	{
         status.died = true;
         DropItem();
-
-        GameObject.FindWithTag("UIManager").GetComponent<QuestManagerSystem>().SendMessage("NPCFirstQuestMessage");
         Destroy(gameObject);
-
-
     }
 	
 	void Damage(AttackInfo attackInfo)
 	{
+		Debug.Log("Damage");
 		status.damaged = true;
 		status.HP -= attackInfo.attackPower;
 		if (status.HP <= 0) {
@@ -208,23 +198,11 @@ public class SimpleMeleeMobCtrl : MonoBehaviour
 	void StateStartCommon()
 	{
 		status.attacking = false;
-		status.died = false;
-		status.damaged = false;
-		attackArea.SendMessage("OnAttackTermination");
-	}
+        status.died = false;
+    }
     // 공격 대상을 설정한다.
     public void SetAttackTarget(Transform target)
     {
-	    attackTarget = target;
-    }
-
-    void ShootBullet()
-    {
-
-	    usingBullet.transform.position = transform.position + transform.forward;
-	    usingBullet.transform.rotation = Quaternion.Euler(transform.forward);
-	    usingBullet.SetActive(true);
-	    
-	    usingBullet.SendMessage("SetTarget", attackTarget);
+        attackTarget = target;
     }
 }

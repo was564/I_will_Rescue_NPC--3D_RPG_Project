@@ -12,16 +12,8 @@ public class SwordAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        AttackInfo attack = new AttackInfo();
-
-        attack.attackPower = 5;
-        attack.attacker = this.transform;
-
-        if (other.gameObject.tag.Equals("Enemy"))
-        {
-            other.SendMessage("Damage", attack);
-            Debug.Log(other.name + "을 때림");
-        }
+        // 태그나 레이어를 통해서 Enemy를 구분
+        //other.SendMessage();
     }
 
 }

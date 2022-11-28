@@ -9645,7 +9645,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224614140562403301}
   - component: {fileID: 5130413697059577519}
-  - component: {fileID: -3581361529322299719}
   m_Layer: 0
   m_Name: rangeSkill Effect
   m_TagString: Untagged
@@ -9681,18 +9680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
---- !u!114 &-3581361529322299719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224614140562403300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f181b6e189b6bf8439104ed7e9ed99a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &224614140897468207
 GameObject:
   m_ObjectHideFlags: 0

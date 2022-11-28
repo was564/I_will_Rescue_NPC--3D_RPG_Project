@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    NpcSentence npc_sentence;
+
     public float speed = 5f;
     public float MaxHp = 100f;
 
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        npc_sentence =GameObject.Find("NPC").GetComponent<NpcSentence>();
+
         firstQ = false;
         W_ = false;
         A_ = false;
@@ -136,4 +140,5 @@ public class Player : MonoBehaviour
             }
         }
     }
+
 }

@@ -25,7 +25,7 @@ public class SimpleMobSpawner : MonoBehaviour
         {
             GameObject mob;
             // reason of -1 is that if ratio is 0, this for loop will not activate
-            if ((int)(ratioRangedMobs * amountMobs) - 1 >= i)
+            if ((int)(ratioRangedMobs * amountMobs) - 1 == i)
             {
                 mob = Instantiate(
                     rangedMobTypes[Random.Range(0, rangedMobTypes.Count)],

@@ -23,33 +23,20 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         isOutofrange = range.GetComponent<check>().isOut;
-
-        // 스킬을 사용중인 경우에는 움직이지 않는다.
-        if (GetComponent<PetAI>().isUsingSkill)
-        {
-            nav.speed = 0.0f;
-        }
-        else
-        {
-            nav.speed = 5.0f;
-        }
-
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (!GetComponent<PetAI>().isUsingSkill)
+        if(isOutofrange)
         {
-            if (isOutofrange)
-            {
-                nav.SetDestination(target.transform.position);
-                anim.SetBool("isMove", true);
-            }
-            else
-            {
-                nav.SetDestination(transform.position);
-                anim.SetBool("isMove", false);
-            }
+            nav.SetDestination(target.transform.position);
+            anim.SetBool("isMove", true);
         }
+        else
+        {
+            nav.SetDestination(transform.position);
+            anim.SetBool("isMove", false);
+        }
+
     }
 }

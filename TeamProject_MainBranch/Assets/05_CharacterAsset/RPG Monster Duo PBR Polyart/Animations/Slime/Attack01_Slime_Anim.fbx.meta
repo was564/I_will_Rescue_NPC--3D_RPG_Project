@@ -127,7 +127,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -140,14 +140,21 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.21472393
+      - time: 0.13793103
         functionName: StartAttackHit
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: b32d9083d95d253418710fc6cb15c079, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.39570552
+      - time: 0.48706895
+        functionName: EndAttackHit
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: b32d9083d95d253418710fc6cb15c079, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.9913793
         functionName: EndAttack
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: b32d9083d95d253418710fc6cb15c079, type: 3}

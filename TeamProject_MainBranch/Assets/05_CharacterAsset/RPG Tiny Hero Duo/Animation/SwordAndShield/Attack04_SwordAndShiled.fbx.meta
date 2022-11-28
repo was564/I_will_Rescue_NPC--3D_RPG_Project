@@ -66,7 +66,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.63230926
+      - time: 0.9705882
         functionName: OffAttack
         data: 
         objectReferenceParameter: {fileID: 5219429472343135810, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}

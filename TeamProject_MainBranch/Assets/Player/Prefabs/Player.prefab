@@ -71975,7 +71975,6 @@ GameObject:
   - component: {fileID: 1231036839}
   - component: {fileID: 1231036838}
   - component: {fileID: 1736881557}
-  - component: {fileID: 9206032838846543447}
   m_Layer: 0
   m_Name: meleeSkillEffect
   m_TagString: Untagged
@@ -76783,18 +76782,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9206032838846543447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231036836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f181b6e189b6bf8439104ed7e9ed99a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1298296726
 GameObject:
   m_ObjectHideFlags: 0
@@ -112834,7 +112821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 5
-  doingQuest: 0
   ef_heal: {fileID: 707922657}
   ef_buf: {fileID: 1298296726}
   ef_meleeSkill: {fileID: 1231036836}
@@ -112843,7 +112829,6 @@ MonoBehaviour:
   isJump: 0
   moveVec: {x: 0, y: 0, z: 0}
   cameraTransform: {fileID: 0}
-  Sword: {fileID: 0}
 --- !u!114 &168463782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112856,10 +112841,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4471491e8fb0c4429be83e6cf50b1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 70
-  hp_max: 100
+  hp: 100
   damage: 5
-  isInDefenceArea: 0
 --- !u!1 &8234270017150798387
 GameObject:
   m_ObjectHideFlags: 0
@@ -113274,14 +113257,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}
---- !u!1 &8791298518011477792 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5219429472343135810, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}
-  m_PrefabInstance: {fileID: 3634356654143334754}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8163662455576044954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4838260039200787704, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}
+  m_PrefabInstance: {fileID: 3634356654143334754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8791298518011477792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5219429472343135810, guid: bd23bffaa1e4e0a4ea4c422f90c9aadf, type: 3}
   m_PrefabInstance: {fileID: 3634356654143334754}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4017864352075387087

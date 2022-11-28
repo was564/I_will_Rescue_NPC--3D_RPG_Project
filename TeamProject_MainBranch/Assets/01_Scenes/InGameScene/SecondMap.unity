@@ -24394,15 +24394,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -311.47
+      value: -364.3
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50.8
+      value: 50.96
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 114.38
+      value: -461.8
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -66359,6 +66359,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 537670033093426737, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
+      propertyPath: StartingPointInNextScene.x
+      value: -340
+      objectReference: {fileID: 0}
+    - target: {fileID: 537670033093426737, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
+      propertyPath: StartingPointInNextScene.y
+      value: 50.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 537670033093426737, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
+      propertyPath: StartingPointInNextScene.z
+      value: -400
+      objectReference: {fileID: 0}
     - target: {fileID: 537670033275618443, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
       propertyPath: m_Name
       value: SceneLoader

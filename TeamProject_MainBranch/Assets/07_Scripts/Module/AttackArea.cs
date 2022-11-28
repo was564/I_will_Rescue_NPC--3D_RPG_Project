@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class AttackInfo
-    {
-        public int attackPower; // 이 공격의 공격력.
-        public Transform attacker; // 공격자.
-    }
+{
+    public int attackPower; // 이 공격의 공격력.
+    public Transform attacker; // 공격자.
+}
+
 public class AttackArea : MonoBehaviour
 {
-    
     
     private ObjectStatus status;
 
     private Collider attackCollider;
 
     private Animator animator;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +48,8 @@ public class AttackArea : MonoBehaviour
     {
         if (other.tag != "Player") return;
         
-        // other.SendMessage("Damage",GetAttackInfo());
-        
+        //other.SendMessage("Damage",GetAttackInfo());
+
         status.lastAttackTarget = other.transform.root.gameObject;
     }
     

@@ -1236,6 +1236,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
+--- !u!1 &818093106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8069650536690672672, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
+  m_PrefabInstance: {fileID: 818093105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &818093107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818093106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5be46dc07de56940b3112a13094c5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &840611282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2243,6 +2260,7 @@ GameObject:
   - component: {fileID: 1152563321}
   - component: {fileID: 1152563320}
   - component: {fileID: 1152563323}
+  - component: {fileID: 1152563324}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2333,6 +2351,18 @@ MonoBehaviour:
   ymove: 0
   distance: 3
   rotateSpeed: 500
+--- !u!114 &1152563324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152563319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5be46dc07de56940b3112a13094c5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152718798
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class SearchAreaRange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Collider>().enabled = true;
         exitTime = 0.0f;
         notExistPlayerInCollider = true;
         enemyCtrl = transform.root.GetComponent<SimpleRangeMobCtrl>();
@@ -35,11 +36,13 @@ public class SearchAreaRange : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (!other) return;
         if(other.tag == "Player") enemyCtrl.SetAttackTarget(other.transform);
     }
     
     private void OnTriggerEnter(Collider other)
     {
+        if (!other) return;
         if (other.CompareTag("Player"))
         {
             notExistPlayerInCollider = false;

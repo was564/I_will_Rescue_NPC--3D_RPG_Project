@@ -14,6 +14,7 @@ public class SearchArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Collider>().enabled = true;
         exitTime = 0.0f;
         notExistPlayerInCollider = true;
         enemyCtrl = transform.root.GetComponent<SimpleMeleeMobCtrl>();
@@ -22,6 +23,7 @@ public class SearchArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (notExistPlayerInCollider && enemyCtrl.attackTarget)
         {
             if (exitTime >= giveUpChaseTime)

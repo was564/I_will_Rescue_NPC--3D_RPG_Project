@@ -8,7 +8,7 @@ public class SimpleMeleeMobAnimation : MonoBehaviour
 {
     Animator animator;
     private AttackArea attackArea;
-    private float range = 4.0f;
+    public float range = 4.0f;
     ObjectStatus status;
     private SimpleMeleeMobCtrl enemyCtrl;
     Vector3 prePosition;
@@ -16,7 +16,8 @@ public class SimpleMeleeMobAnimation : MonoBehaviour
     bool attacked = false;
     private bool isDamage = false;
     private bool isBattle = false;
-    
+
+    private bool hasTwoAttacks;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,12 @@ public class SimpleMeleeMobAnimation : MonoBehaviour
         enemyCtrl = GetComponent<SimpleMeleeMobCtrl>();
         prePosition = transform.position;
         attackArea = GetComponentInChildren<AttackArea>();
+        
+        animator.SetBool("Attack2", true);
+        if (!animator.GetBool("Attack2")) hasTwoAttacks = false;
+        else hasTwoAttacks = true;
+        
+        if(hasTwoAttacks) animator.SetBool("Attack2", false);
     }
 
     // Update is called once per frame
@@ -46,12 +53,19 @@ public class SimpleMeleeMobAnimation : MonoBehaviour
         if (distance <= range/2)
         {
             animator.SetBool("Attack1", (!attacked && status.attacking));
-            animator.SetBool("Attack2", !(!attacked && status.attacking));
+            if(hasTwoAttacks)
+                animator.SetBool("Attack2", !(!attacked && status.attacking));
         }
         else if (distance <= range)
         {
-            animator.SetBool("Attack2", (!attacked && status.attacking));
-            animator.SetBool("Attack1", !(!attacked && status.attacking));
+            if (hasTwoAttacks)
+            {
+                animator.SetBool("Attack2", (!attacked && status.attacking));
+                animator.SetBool("Attack1", !(!attacked && status.attacking));
+            }
+
+            if(!hasTwoAttacks)
+                    animator.SetBool("Attack1", false);
         }
 
         if(!isDown && status.died)
@@ -69,6 +83,7 @@ public class SimpleMeleeMobAnimation : MonoBehaviour
         if (!isDamage && status.damaged)
         {
             isDamage = true;
+            status.damaged = false;
             animator.SetTrigger("Damage");
         }
         
@@ -93,5 +108,11 @@ public class SimpleMeleeMobAnimation : MonoBehaviour
     void EndAttack()
     {
         attacked = true;
+    }
+
+    void EndHit()
+    {
+        isDamage = false;
+        status.damaged = false;
     }
 }

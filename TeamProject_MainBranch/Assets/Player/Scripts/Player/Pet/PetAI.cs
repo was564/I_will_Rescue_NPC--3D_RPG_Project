@@ -57,15 +57,15 @@ public class PetAI : MonoBehaviour
 
         UpdateCoolTime();
 
-        if(skillCoolTime) Skill();
+        if (skillCoolTime) Skill();
 
 
 
     }
 
-   void UpdateCoolTime()
+    void UpdateCoolTime()
     {
-        if(ct_skill >= ct_skillMax)
+        if (ct_skill >= ct_skillMax)
         {
             skillCoolTime = true;
         }
@@ -98,11 +98,11 @@ public class PetAI : MonoBehaviour
         }
         else if (petClass == PET_CLASS.ATTACK)
         {
-        
+
         }
         else if (petClass == PET_CLASS.DEFENCE)
-        { 
-            if(RecognizeEnemy)
+        {
+            if (RecognizeEnemy)
             {
                 CreateDefenseArea();
             }

@@ -1,15 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AliveObjectInChangingScene : MonoBehaviour
 {
-    public string objectName;
-    
-    private void Awake()
+    void Awake()
     {
-        Debug.Log(GameObject.Find(objectName));
+        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        if (allObjects.Count(obj => obj.name == this.name) >= 2)
+        {
+            this.transform.position = Vector3.zero;
+            Destroy(this.gameObject, 0.0f);
+        }
     }
 
     // Start is called before the first frame update

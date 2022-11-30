@@ -46800,8 +46800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341, y: -41}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 341, y: 89.221}
+  m_SizeDelta: {x: 160, y: 290.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &935028298
 MonoBehaviour:
@@ -46881,7 +46881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -272, y: 240}
+  m_AnchoredPosition: {x: -604, y: 410}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &946067535
@@ -52046,8 +52046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 10}
+  m_AnchoredPosition: {x: 36.000008, y: 4.4313}
+  m_SizeDelta: {x: 273.3471, y: 37.5539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1005031844 stripped
 Transform:
@@ -62487,7 +62487,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 100}
+  m_SizeDelta: {x: 1984.6631, y: 274.0024}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1198612668
 MonoBehaviour:
@@ -62511,11 +62511,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4df4869b38f5a3b449f4be935314fdc9, type: 3}
-    m_FontSize: 14
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -68488,8 +68488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 10}
+  m_AnchoredPosition: {x: 36, y: 4.4313}
+  m_SizeDelta: {x: 273.3471, y: 37.5539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491507489
 MonoBehaviour:
@@ -79336,7 +79336,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 297.7969}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!225 &1804328149
 CanvasGroup:
@@ -118986,7 +118986,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  hp_max: 100
   damage: 5
+  isInDefenceArea: 0
 --- !u!4 &2132935411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013493088832, guid: 156f975b5c133c846bd7dd4d6c726faf, type: 3}

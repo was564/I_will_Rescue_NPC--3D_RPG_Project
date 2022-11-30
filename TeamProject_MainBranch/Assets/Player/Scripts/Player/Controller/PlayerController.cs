@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float jumpForce = 5.0f;
 
+    // 퀘스트 시, 입력을 막는 bool 타입 변수 생성
+    [SerializeField]
+    bool doingQuest = false;
+
     // Movement Inputs
     float hAxis;
     float vAxis;
@@ -43,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
     // Heal Cycle
     float healCycle = 0.0f;
+    bool isHealing = false;
+
+    bool isPower = false;
 
     // Skill Effects & Projectile
     [SerializeField]
@@ -86,13 +93,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        GetInput();
-        Move();
-        Turn();
-        Jump();
-        SkillInput();
-        MouseInput();
+
+        if (!doingQuest)
+        {
+            GetInput();
+            Move();
+            Turn();
+            //Jump();
+            SkillInput();
+            MouseInput();
+
+            Healing();
+        }
         UpdateCoolTime();
+    }
+
+    void PlayerMovementFix(bool bValue)
+    {
+        doingQuest = bValue;
+        if (bValue)
+        {
+            speed = 0;
+            anim.SetBool("isWalk", false);
+        }
+        else
+            speed = 4;
     }
 
     void UpdateCoolTime()
@@ -242,19 +267,33 @@ public class PlayerController : MonoBehaviour
         ct_heal = 0.0f;
         sa_heal = false;
 
-        Debug.Log("Heal");
-
         ef_heal.SetActive(true);
-        Invoke("EndHeal", sd_heal);
-        // HP 일정량 회복
-        healCycle += 1.0f * Time.deltaTime;
 
-        if (healCycle > 1.0f)
+        isHealing = true;
+        Invoke("EndHeal", sd_heal);
+    }
+
+    void Healing()
+    {
+        if (!isHealing) return;
+
+
+        // HP 일정량 회복
+        healCycle += Time.deltaTime;
+
+        // 강화효과가 적용중이라면 추가적인 힐을 부여한다.
+        int AdditionalHeal = 0;
+
+        if (isPower)
+            AdditionalHeal = 1;
+
+        if (healCycle > 1.95f)
         {
             // 플레이어의 체력 일정량 회복
-            GetComponent<PlayerStatus>().HealPlayer(1);
+            this.GetComponent<PlayerStatus>().HealPlayer(2 + AdditionalHeal);
+            Debug.Log("Heal");
+            healCycle = 0.0f;
         }
-
     }
 
     void Buf()
@@ -265,9 +304,10 @@ public class PlayerController : MonoBehaviour
         ef_buf.SetActive(true);
         Invoke("EndBuf", sd_buf);
 
+        isPower = true;
+
         // 모든 스탯 증가
-
-
+        this.gameObject.GetComponent<PlayerStatus>().setPlayerDamage(15);
     }
 
     void RangeSkill()
@@ -301,10 +341,14 @@ public class PlayerController : MonoBehaviour
     void EndHeal()
     {
         ef_heal.SetActive(false);
+        healCycle = 0.0f;
+        isHealing = false;
     }
     void EndBuf()
     {
         ef_buf.SetActive(false);
+        isPower = false;
+        this.gameObject.GetComponent<PlayerStatus>().setPlayerDamage(5);
     }
 
     void EndDodge()

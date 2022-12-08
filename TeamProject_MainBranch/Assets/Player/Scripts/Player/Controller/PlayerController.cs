@@ -111,9 +111,13 @@ public class PlayerController : MonoBehaviour
     void PlayerMovementFix(bool bValue)
     {
         doingQuest = bValue;
-
-        GameObject camera = GameObject.FindGameObjectWithTag("Camera");
-      //  camera.GetComponent<Follow>().SetCameraFix(bValue);
+        if (bValue)
+        {
+            speed = 0;
+            anim.SetBool("isWalk", false);
+        }
+        else
+            speed = 4;
     }
 
     void UpdateCoolTime()

@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - UIManager
   - Camera
+  - sword
+  - Ground
   layers:
   - Default
   - TransparentFX

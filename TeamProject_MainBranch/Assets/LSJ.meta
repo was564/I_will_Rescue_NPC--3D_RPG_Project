@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 8d7cc0f11f3df184c8fa54b1206d00af
+<<<<<<<< HEAD:TeamProject_MainBranch/Assets/03_Ani.meta
+guid: f2f92efab1cbe8c44832ccd959f45073
+========
+guid: 757f5debd054c86449e0933088a81dce
+>>>>>>>> 33db85dd45d3de17501c93e5ce6317c71953ebbd:TeamProject_MainBranch/Assets/LSJ.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

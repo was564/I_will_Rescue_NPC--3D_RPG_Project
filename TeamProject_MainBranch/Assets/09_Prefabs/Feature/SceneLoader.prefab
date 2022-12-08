@@ -92,7 +92,7 @@ SphereCollider:
   m_GameObject: {fileID: 537670031556783715}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossSceneName: Stage1Boss
+  StartingPointInNextScene: {x: 0, y: 0, z: 0}
 --- !u!1 &537670032326510070
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +202,7 @@ SphereCollider:
   m_GameObject: {fileID: 537670032326510070}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossSceneName: Stage3Boss
+  StartingPointInNextScene: {x: 0, y: 0, z: 0}
 --- !u!1 &537670033093426751
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +312,7 @@ SphereCollider:
   m_GameObject: {fileID: 537670033093426751}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -327,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossSceneName: Stage2Boss
+  StartingPointInNextScene: {x: 0, y: 0, z: 0}
 --- !u!1 &537670033275618443
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +474,7 @@ SphereCollider:
   m_GameObject: {fileID: 537670033317108277}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -488,3 +491,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossSceneName: FinalBoss
+  StartingPointInNextScene: {x: 0, y: 0, z: 0}

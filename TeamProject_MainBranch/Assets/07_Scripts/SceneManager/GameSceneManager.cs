@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,12 +22,15 @@ public class GameSceneManager : MonoBehaviour
             changeSceneColliders.Add(sceneCollider.gameObject.name, sceneCollider);
         
         playerTransform = GameObject.FindWithTag("Player").transform;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.P)) clearBossStage("Stage1Boss");
+        
     }
 
     void ActivateScene(string goName)
@@ -36,7 +40,10 @@ public class GameSceneManager : MonoBehaviour
         Scene nextScene = SceneManager.GetSceneByName(nextSceneName);
         
         colliderInfo.gameObject.SetActive(false);
-        
+
+        if (colliderInfo.StartingPointInNextScene != Vector3.zero)
+            playerTransform.position = colliderInfo.StartingPointInNextScene;
+
         foreach (GameObject go in gameObjectsForMovingToScene)
         {
             DontDestroyOnLoad(go);
@@ -47,8 +54,20 @@ public class GameSceneManager : MonoBehaviour
 
     void clearBossStage(string currentSceneName)
     {
-        SceneManager.UnloadSceneAsync(currentSceneName);
         SceneManager.LoadScene("SecondMap");
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "SecondMap") return;
+
+        foreach (var script in changeSceneColliders.Values)
+        {
+            if (script.gameObject.activeSelf && script.bossSceneName != "FinalBoss")
+                return;
+        }
+        
+        GameObject.Find("SecretDoor").SetActive(false);
     }
 }
 

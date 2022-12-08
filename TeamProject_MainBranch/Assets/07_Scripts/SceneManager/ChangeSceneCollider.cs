@@ -10,12 +10,15 @@ public class ChangeSceneCollider : MonoBehaviour
 
     public string bossSceneName;
 
+    public Vector3 StartingPointInNextScene = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
         gameSceneManager = transform.parent.GetComponent<GameSceneManager>();
 
         GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)

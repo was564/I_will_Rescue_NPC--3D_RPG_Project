@@ -1371,7 +1371,7 @@ SphereCollider:
   m_GameObject: {fileID: 8752616975368683689}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
@@ -1387,6 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a6d3745b7af6e42b90864a99da2b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  giveUpChaseTime: 8
 --- !u!1 &8752616976152172237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,4 +1445,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb2fde96ce5dfae4da1ba8b3eeeb8d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTrigger: 0

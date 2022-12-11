@@ -13,6 +13,7 @@ public class LAVA_Animation : MonoBehaviour
     public creatBaby creatBaby;
     public float time;
     bool timecheck = false;
+  
 
     private void Start()
     {
@@ -21,8 +22,10 @@ public class LAVA_Animation : MonoBehaviour
         creatBaby = GetComponent<creatBaby>();
     }
     void Update()
-    {
-        time += Time.deltaTime;
+    {      
+       time += Time.deltaTime;
+        
+
         Vector3 delta_postion = transform.position - prePosition;
         animator.SetFloat("speed", delta_postion.magnitude / Time.deltaTime);
         if(followPlayer.isplayer==true)
@@ -57,6 +60,8 @@ public class LAVA_Animation : MonoBehaviour
             }
 
         }
+
+
         //if (gameObject == "Player")
         //{
         //    isattacking = true;

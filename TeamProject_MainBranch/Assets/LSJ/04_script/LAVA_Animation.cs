@@ -8,6 +8,8 @@ public class LAVA_Animation : MonoBehaviour
     Vector3 prePosition;
     bool isattacking = false;
     bool isdamaged = false;
+    public GameObject gameObject;
+    public followPlayer followPlayer;
     
     private void Start()
     {
@@ -18,21 +20,40 @@ public class LAVA_Animation : MonoBehaviour
     {
         Vector3 delta_postion = transform.position - prePosition;
         animator.SetFloat("speed", delta_postion.magnitude / Time.deltaTime);
-
-        if(Input.GetKeyDown("z"))
+        if(followPlayer.isplayer==true)
         {
-            isattacking = true;
+            if (followPlayer.dist <= 5.0f)
+            {
+                isattacking = true;
+            }
+            animator.SetBool("isattacking", isattacking);
+            isattacking = false;
         }
-        animator.SetBool("isattacking", isattacking);
-
-        if(Input.GetKeyDown("x"))
-        {
-            isdamaged = true;
-        }
-        animator.SetBool("isdamaged", isdamaged);
-
-        prePosition = transform.position;
-    }
     
+        //if (gameObject == "Player")
+        //{
+        //    isattacking = true;
+        //}
+        //animator.SetBool("isattacking", isattacking);
+
+
+
+        //if (Input.GetKeyDown("x"))
+        //{
+        //    isdamaged = true;
+        //}
+        //animator.SetBool("isdamaged", isdamaged);
+
+        //prePosition = transform.position;
+    }
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Player")
+    //    {
+    //        isattacking = true;
+    //    }
+    //    animator.SetBool("isattacking", isattacking);
+    //}
 
 }

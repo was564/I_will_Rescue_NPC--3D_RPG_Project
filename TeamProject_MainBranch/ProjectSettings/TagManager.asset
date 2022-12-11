@@ -11,6 +11,7 @@ TagManager:
   - Camera
   - sword
   - Ground
+  - Info
   layers:
   - Default
   - TransparentFX

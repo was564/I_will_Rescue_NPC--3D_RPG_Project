@@ -29,6 +29,10 @@ public class LAVA_Animation : MonoBehaviour
             animator.SetBool("isattacking", isattacking);
             isattacking = false;
         }
+        else
+        {
+            animator.SetFloat("speed", 0);
+        }
     
         //if (gameObject == "Player")
         //{

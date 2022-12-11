@@ -7,6 +7,9 @@ public class responFire : MonoBehaviour
     public GameObject rangeObject;
     public GameObject capsul;
     BoxCollider rangeCollider;
+    bool isCoroutineStop = false;
+    public float time;
+    public List<GameObject> creatList;
     private void Awake()
     {
         rangeCollider = rangeObject.GetComponent<BoxCollider>();
@@ -29,15 +32,50 @@ public class responFire : MonoBehaviour
     {
         StartCoroutine(RandomRespawn_Coroutine());
     }
+
+    void Update()
+    {
+        time += Time.deltaTime;
+        if(time > 7f)
+        {
+            isCoroutineStop = true;
+            StopCoroutine(RandomRespawn_Coroutine());
+        }
+
+        if(time >= 15f)
+        {
+            for(int i = 0; i<creatList.Count; i++)
+            {
+                Destroy(creatList[i]);
+            }
+            creatList.Clear();
+        }
+
+        if(time >=50f)
+        {
+            time = 0;
+            isCoroutineStop = false;
+            StartCoroutine(RandomRespawn_Coroutine());
+        }
+        
+    }
+
     IEnumerator RandomRespawn_Coroutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            if(isCoroutineStop == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.7f);
 
             // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
             GameObject instantCapsul = Instantiate(capsul, Return_RandomPosition(), Quaternion.identity);
+            creatList.Add(instantCapsul);
         }
+
     }
 
+ 
 }

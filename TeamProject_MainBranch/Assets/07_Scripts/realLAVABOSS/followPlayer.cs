@@ -9,6 +9,7 @@ public class followPlayer : MonoBehaviour
     public float dist;
     public bool isplayer=false;
 
+
     // Start is called before the first frame update
     private void OnTriggerStay(Collider other)
     {

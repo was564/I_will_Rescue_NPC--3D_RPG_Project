@@ -10,14 +10,19 @@ public class LAVA_Animation : MonoBehaviour
     bool isdamaged = false;
     public GameObject gameObject;
     public followPlayer followPlayer;
-    
+    public creatBaby creatBaby;
+    public float time;
+    bool timecheck = false;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
         prePosition = transform.position;
+        creatBaby = GetComponent<creatBaby>();
     }
     void Update()
     {
+        time += Time.deltaTime;
         Vector3 delta_postion = transform.position - prePosition;
         animator.SetFloat("speed", delta_postion.magnitude / Time.deltaTime);
         if(followPlayer.isplayer==true)
@@ -34,6 +39,24 @@ public class LAVA_Animation : MonoBehaviour
             animator.SetFloat("speed", 0);
         }
     
+
+        if(time >= 5.0f )
+        {
+
+            if(timecheck == false)
+            {
+                timecheck = true;
+                creatBaby.babycreate();
+                
+            }
+
+            if (time >= 20.0f)
+            {
+                time = 0;
+                timecheck = false;
+            }
+
+        }
         //if (gameObject == "Player")
         //{
         //    isattacking = true;

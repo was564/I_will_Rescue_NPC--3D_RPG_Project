@@ -5,7 +5,7 @@ using UnityEngine;
 public class responFire : MonoBehaviour
 {
     public GameObject rangeObject;
-    public GameObject capsul;
+    public GameObject fire;
     BoxCollider rangeCollider;
     bool isCoroutineStop = false;
     public float time;
@@ -71,7 +71,7 @@ public class responFire : MonoBehaviour
             yield return new WaitForSeconds(0.7f);
 
             // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
-            GameObject instantCapsul = Instantiate(capsul, Return_RandomPosition(), Quaternion.identity);
+            GameObject instantCapsul = Instantiate(fire, Return_RandomPosition(), Quaternion.identity);
             creatList.Add(instantCapsul);
         }
 

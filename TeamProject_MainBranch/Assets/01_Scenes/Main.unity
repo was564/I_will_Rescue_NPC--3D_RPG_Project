@@ -1006,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1763
+      value: 1764.56
       objectReference: {fileID: 0}
     - target: {fileID: 7257261370759757466, guid: 4f4891e3c3ff6754eb2a189c0b0e42a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -40748,6 +40748,65 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 372415923836410673, guid: 0a5e94e6e88a20247b26bc1cb571b755, type: 3}
   m_PrefabInstance: {fileID: 1107054561}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038268728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038268732}
+  - component: {fileID: 1038268729}
+  - component: {fileID: 1038268733}
+  m_Layer: 0
+  m_Name: BABY LAVA RESPONE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1038268729
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038268728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1038268732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038268728}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28, y: 0, z: -0.74}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 708545844}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1038268733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038268728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30, y: 0.3, z: 30}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1038538399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46652,6 +46711,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5551456611592151313, guid: 0640b907bd786df46a7142a974338242, type: 3}
   m_PrefabInstance: {fileID: 2015024827}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1198033686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198033683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6048514d5d1664c90544e2d70d8eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeObject: {fileID: 1038268728}
+  baby: {fileID: 7010357285382393331, guid: f5ac23b513927684a841e67dc51e1aec, type: 3}
+  rangeCollider: {fileID: 1038268733}
+  time: 0
+  creatList: []
 --- !u!114 &1198033687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46666,6 +46742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject: {fileID: 256528046}
   followPlayer: {fileID: 1198033690}
+  creatBaby: {fileID: 0}
+  time: 0
 --- !u!143 &1198033688
 CharacterController:
   m_ObjectHideFlags: 0
@@ -47731,6 +47809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3649683614323446996, guid: 463f1a0a10ac5c4448959c9613e8b7d1, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 5330545464790953825, guid: dfa6a4ecedbdd4848b7842417cd2c461, type: 3}
     - target: {fileID: 3649683614323446996, guid: 463f1a0a10ac5c4448959c9613e8b7d1, type: 3}
       propertyPath: capsul
       value: 

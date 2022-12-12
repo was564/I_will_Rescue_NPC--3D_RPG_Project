@@ -1143,6 +1143,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2791540570912542096, guid: aa7995a7ac2d5c147a735a0b0a851a8a, type: 3}
   m_PrefabInstance: {fileID: 26142397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &28011607 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2593141502485335528, guid: 60bc95f9aff42804b902a538635a2fe2, type: 3}
+  m_PrefabInstance: {fileID: 1567164622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &28011612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28011607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5be46dc07de56940b3112a13094c5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &30257083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31292,7 +31309,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: E
+  m_Text: F
 --- !u!222 &989037477
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67969,7 +67986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 537670033275618444, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
       propertyPath: gameObjectsForMovingToScene.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 537670033275618444, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
       propertyPath: gameObjectsForMovingToScene.Array.data[1]
@@ -67983,6 +68000,10 @@ PrefabInstance:
       propertyPath: gameObjectsForMovingToScene.Array.data[3]
       value: 
       objectReference: {fileID: 1152563319}
+    - target: {fileID: 537670033275618444, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
+      propertyPath: gameObjectsForMovingToScene.Array.data[4]
+      value: 
+      objectReference: {fileID: 28011607}
     - target: {fileID: 537670033275618445, guid: a9fd425be7c674246acc7bc9d05f5c63, type: 3}
       propertyPath: m_RootOrder
       value: 12

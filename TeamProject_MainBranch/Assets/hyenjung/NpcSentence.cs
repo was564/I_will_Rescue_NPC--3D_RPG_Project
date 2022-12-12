@@ -28,9 +28,7 @@ public class NpcSentence : MonoBehaviour
             if (DialogeManager.instance.dialoguegroup.alpha == 0)
             {
                 DialogeManager.instance.Ondialogue(sentences);
-
             }
-
         }
     }
     // Start is called before the first frame update

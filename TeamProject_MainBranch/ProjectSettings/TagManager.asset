@@ -11,6 +11,8 @@ TagManager:
   - Camera
   - sword
   - Ground
+  - Info
+  - timeTrigger
   layers:
   - Default
   - TransparentFX

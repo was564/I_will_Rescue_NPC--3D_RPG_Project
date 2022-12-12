@@ -79418,6 +79418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpForce: 5
+  doingQuest: 0
   ef_heal: {fileID: 1596736174}
   ef_buf: {fileID: 947660761}
   ef_meleeSkill: {fileID: 1014917611}

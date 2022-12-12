@@ -27,11 +27,11 @@ public class PlayerController : MonoBehaviour
     bool meleeSkill;
 
     // Skills Availability
-    bool sa_dodge = true;
-    bool sa_heal = true;
-    bool sa_buf = true;
-    bool sa_rangeSkill = true;
-    bool sa_meleeSkill = true;
+    bool sa_dodge = false;
+    bool sa_heal = false;
+    bool sa_buf = false;
+    bool sa_rangeSkill = false;
+    bool sa_meleeSkill = false;
 
 
     // Skill Cool Time
@@ -380,5 +380,35 @@ public class PlayerController : MonoBehaviour
     {
         Sword.GetComponent<Collider>().enabled = false;
     }
+
+    public float getRangeCool()
+    {
+        return ct_rangeSkill;
+    }
+
+    public float getMeleeCool()
+    {
+        return ct_meleeSkill;
+    }
+
+    public float getBufCool()
+    {
+        return ct_buf;
+    }
+
+    public float getHealCool()
+    {
+        return ct_heal;
+    }
+
+    public float getDodgeCool()
+    {
+        return ct_dodge;
+    }
+
+
+
+
+
 }
 
